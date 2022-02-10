@@ -1,0 +1,13 @@
+[
+	{
+		"id": "emptyspace",
+		"group": "Content",
+		"name": "Empty space",
+		"preview": "https://raw.githubusercontent.com/totaljs/pageswidgets/main/widgets/emptyspace/preview.jpg?raw=true",
+		"url": "https://raw.githubusercontent.com/totaljs/pageswidgets/main/widgets/emptyspace/index.html",
+		"author": "Peter Širka",
+		"icon": "",
+		"color": "",
+		"version": "1"
+	}
+]
