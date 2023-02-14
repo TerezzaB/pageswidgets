@@ -1,0 +1,91 @@
+<script total>
+	exports.id = 'features';
+	exports.name = 'Features';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/features/preview.jpg?raw=true';
+	exports.config = {};
+</script>
+
+<style>
+	.w-features > div { display: flex; flex-wrap: wrap; }
+	.w-features > div .feature { flex: 1 1 31.333%; max-width: 31.333%; display: flex; align-items: center; margin: 0% 2% 2% 0; padding: 20px; background-color: #fff; transition: background-color .2s; border: 1px solid rgb(0 0 0 / 10%); }
+	.w-features > div .feature:nth-child(3n+3) { margin-right: 0 !important; }
+	.w-features > div .feature:hover { background-color: rgb(0 0 0 / 3%); }
+	.w-features > div .feature i { font-size: 40px; margin-right: 20px; }
+	.w-features > div .feature h3 { font-size: 18px; margin: 0 0 5px 0; }
+	.w-features > div .feature .description { font-size: 14px; color: rgba(0,0,0,0.6); }
+
+	@media(max-width: 991px) {
+		.w-features > div .feature { flex: 1 1 49%; }
+		.w-features > div .feature:nth-child(3n+3) { margin-right: 2% !important; }
+		.w-features > div .feature:nth-child(2n+2) { margin-right: 0 !important; }
+	}
+	
+	@media(max-width: 768px) {
+		.w-features > div .feature { flex: 1 1 100%; }
+		.w-features > div .feature:nth-child(2n+2) { margin-right: 0 !important; }
+		.w-features > div .feature:nth-child(3n+3) { margin-right: 0 !important; }
+		.w-features > div .feature { margin-right: 0; }
+	}
+</style>
+
+<body>
+	<div>
+		<div class="feature CMS_remove CMS_repeat CMS_attribute">
+			<div>
+				<i class="fab fa-osi CMS_edit CMS_attribute"></i>
+			</div>
+			<div>
+				<h3 class="CMS_edit CMS_attribute">Lorem ipsum</h3>
+				<div class="description CMS_edit CMS_attribute">The main parts of the Total.js Platform are fully open-source under MIT license. Visit our GitHub profile.</div>
+			</div>
+		</div>
+		<div class="feature CMS_remove CMS_repeat CMS_attribute">
+			<div>
+				<i class="fab fa-osi CMS_edit CMS_attribute"></i>
+			</div>
+			<div>
+				<h3 class="CMS_edit CMS_attribute">Lorem ipsum</h3>
+				<div class="description CMS_edit CMS_attribute">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+			</div>
+		</div>
+		<div class="feature CMS_remove CMS_repeat CMS_attribute">
+			<div>
+				<i class="fab fa-osi CMS_edit CMS_attribute"></i>
+			</div>
+			<div>
+				<h3 class="CMS_edit CMS_attribute">Lorem ipsum</h3>
+				<div class="description CMS_edit CMS_attribute">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+			</div>
+		</div>
+		<div class="feature CMS_remove CMS_repeat CMS_attribute">
+			<div>
+				<i class="fab fa-osi CMS_edit CMS_attribute"></i>
+			</div>
+			<div>
+				<h3 class="CMS_edit CMS_attribute">Lorem ipsum</h3>
+				<div class="description CMS_edit CMS_attribute">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+			</div>
+		</div>
+		<div class="feature CMS_remove CMS_repeat CMS_attribute">
+			<div>
+				<i class="fab fa-osi CMS_edit CMS_attribute"></i>
+			</div>
+			<div>
+				<h3 class="CMS_edit CMS_attribute">Lorem ipsum</h3>
+				<div class="description CMS_edit CMS_attribute">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+			</div>
+		</div>
+		<div class="feature CMS_remove CMS_repeat CMS_attribute">
+			<div>
+				<i class="fab fa-osi CMS_edit CMS_attribute"></i>
+			</div>
+			<div>
+				<h3 class="CMS_edit CMS_attribute">Lorem ipsum</h3>
+				<div class="description CMS_edit CMS_attribute">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+			</div>
+		</div>
+	</div>
+</body>

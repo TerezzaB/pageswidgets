@@ -1,0 +1,48 @@
+<script total>
+	exports.id = 'image';
+	exports.name = 'Image';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/image/preview.jpg?raw=true';
+    exports.config = { link: false, rounded: false };
+</script>
+
+<settings>
+    <div class="padding">
+        <div data---="configuration__?" class="invisible">
+            <script type="text/plain">
+                [
+                    {
+                        name: 'link',
+                        text: 'Enable link',
+                        type: 'boolean'
+                    },
+                    {
+                        name: 'rounded',
+                        text: 'Rounded corners',
+                        type: 'boolean'
+                    }
+                ]
+            </script>
+
+            <script>
+                exports.save = function(config, el) {
+                    var link = el.find('a');
+                    
+                    if (config.link) {
+                        !link.length && el.find('img').wrap('<a href="/" class="CMS_edit"></a>');
+                    } else {
+                        link.length && el.find('img').unwrap('a');
+                    }
+
+                    el.find('img').tclass('img-rounded', config.rounded);
+                };
+            </script>
+        </div>
+    </div>
+</settings>
+
+<body>
+    <div class="wm wp wb w-image"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABHQAAAEsAQMAAACYJ3bIAAAAA1BMVEXW1taWrGEgAAAAQElEQVR4Ae3BMQEAAADCIPuntsUuYOQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOCowAABhgBYigAAAABJRU5ErkJggg==" class="img-responsive CMS_edit" alt="" border="0" /></div>
+</body>

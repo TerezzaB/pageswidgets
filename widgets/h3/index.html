@@ -1,0 +1,56 @@
+<script total>
+	exports.id = 'h3';
+	exports.name = 'H3';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/h3/preview.jpg?raw=true';
+	exports.config = { align: 'left' };
+</script>
+
+<style>
+	.w-h3 i { margin-right: 8px; }
+	.w-h3 p { margin: 0; line-height: 18px; }
+	.w-h3-center * { text-align: center; }
+	.w-h3-right * { text-align: right; }
+	.w-h3-justify * { text-align: justify; }
+</style>
+
+<settings>
+    <div class="padding">
+        <div data---="configuration__?" class="invisible">
+            <script type="text/plain">
+                [
+                    {
+                        name: 'align',
+                        text: 'Align',
+                        type: 'dropdown',
+                        items: [{ id: 'left', name: 'Left' }, { id: 'center', name: 'Center' }, { id: 'right', name: 'Right' }, { id: 'justify', name: 'Justify' }]
+                    }
+                ]
+            </script>
+
+            <script>
+                exports.save = function(config, el) {
+                    var container = el.find('.w-h3');
+                    switch (config.align) {
+                        case 'left':
+                            container.rclass2('w-h3-');
+                            break;
+                        case 'right':
+                        case 'center':
+                        case 'justify':
+                            container.rclass2('w-h3-').aclass('w-h3-' + config.align);
+                            break;
+                    }
+                };
+            </script>
+        </div>
+    </div>
+
+</settings>
+
+<body>
+    <h3 class="CMS_search"><i class="fa fa-home CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Lorem ipsum sodem</span></h3>
+	<p class="CMS_edit CMS_remove CMS_repeat">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi voluptate voluptates, qui totam debitis illo minima fuga sit exercitationem nesciunt.</p>
+</body>

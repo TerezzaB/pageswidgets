@@ -1,0 +1,111 @@
+<script total>
+	exports.id = 'tabmenu';
+	exports.name = 'Tab Menu';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/tabmenu/preview.jpg?raw=true';
+	exports.config = { color: 'blue', count: 3 };
+</script>
+
+<style>
+	.w-tabmenu { background-color: white; padding: 10px 0 0; }
+	.w-tabmenu ul { padding: 0; margin: 0; display: block; position: relative; font-size: 12px; border: 0; list-style-type: none; height: 36px; overflow: hidden; user-select: none; }
+	.w-tabmenu li { background-color: #F0F0F0; margin: 0; text-align: center; padding: 0 7px; line-height: 26px; height: 26px; color: #6d6d6d; cursor: pointer; min-width: 70px; max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; float: left; }
+	.w-tabmenu li:hover { color: #252525; }
+	.w-tabmenu li:first-child { border-radius: 2px 0 0 2px; border-left: 0; }
+	.w-tabmenu li:last-child { border-radius: 0 2px 2px 0; }
+	li.w-tabmenu-selected { color: white !important; }
+	.w-tabmenu-body { display: none; }
+	.w-tabmenu-body.w-tabmenu-selected { display: block; }
+	.w-tabmenu i { margin-right: 8px; }
+	.w-tabmenu-smoke li.w-tabmenu-selected { background-color: #D0D0D0; color: black !important; }
+	.w-tabmenu-yellow li.w-tabmenu-selected { background-color: #F5DB6E; color: black !important; }
+	.w-tabmenu-orange li.w-tabmenu-selected { background-color: #FFA911; }
+	.w-tabmenu-green li.w-tabmenu-selected { background-color: #83C83C; }
+	.w-tabmenu-blue li.w-tabmenu-selected { background-color: #4285F4; }
+	.w-tabmenu-red li.w-tabmenu-selected { background-color: #E73323; }
+	.w-tabmenu-pink li.w-tabmenu-selected { background-color: #E7357F; }
+	.w-tabmenu-mint li.w-tabmenu-selected { background-color: #2AB08F; }
+	.w-tabmenu-purple li.w-tabmenu-selected { background-color: #6118A3; }
+	.w-tabmenu-white li.w-tabmenu-selected { background-color: white; color: black !important; }
+	.w-tabmenu-black li.w-tabmenu-selected { background-color: #202020; }
+	.CMS_preview .w-tabmenu-body { display: block !important; }
+</style>
+
+<settings>
+    <div class="padding">
+        <div data---="configuration__?" class="invisible">
+            <script type="text/plain">
+                [
+                    {
+                        name: 'count',
+                        text: 'Count of tabs',
+                        type: number
+                    },
+                    {
+                        name: 'color',
+                        text: 'Color',
+                        type: 'dropdown',
+                        items: [{ name: 'Silver', id: 'smoke' }, { name: 'Yellow', id: 'yellow' }, { name: 'Red', id: 'red' }, { name: 'Blue', id: 'blue' }, { name: 'Green', id: 'green' }, { name: 'Pink', id: 'pink' }, { name: 'Orange', id: 'orange' }, { name: 'Purple', id: 'purple' }, { name: 'Mint', id: 'mint' }, { name: 'Black', id: 'black' }, { name: 'White', id: 'white' }]
+                    }
+                ]
+            </script>
+
+            <script>
+                exports.save = function(config, el) {
+            		var count = config.count;
+                    var container = el.find('.w-tabmenu');
+                    var ul = container.find('ul');
+                    var length = ul.find('li').length;
+
+                    container.rclass2('w-tabmenu-').aclass('w-tabmenu-' + config.color);
+
+                    if (count === length)
+                        return;
+
+                    if (length < count) {
+                        for (var i = length; i < count; i++) {
+                            ul.append('<li class="w-tabmenu-tab" data-index="{0}"><i class="fa fa-home CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Tab {1}</span></li>'.format(i, i + 1));
+                            container.append('<div data-index="{0}"  data-cms-info="{1}" class="w-tabmenu-body CMS_widgets"></div>'.format(i, i + 1));
+                        }
+                    } else {
+                        for (var i = 0; i < (length - count); i++) {
+                            var li = ul.find('li:last-child');
+                            li.remove();
+                            container.find('div[data-index="{0}"]'.format(li.attrd('index'))).remove();
+                        }
+                    }
+
+                    container.find('[data-index="0"]').aclass('w-tabmenu-selected');
+                };
+            </script>
+        </div>
+    </div>
+
+</settings>
+
+<body>
+    <ul>
+		<li class="w-tabmenu-tab w-tabmenuselected" data-index="0"><i class="fa fa-info-circle CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Tab 1</span></li>
+		<li class="w-tabmenu-tab" data-index="1"><i class="fa fa-cog CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Tab 2</span></li>
+		<li class="w-tabmenu-tab" data-index="2"><i class="fa fa-warning CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Tab 3</span></li>
+	</ul>
+	<div data-index="0" data-cms-info="1" class="w-tabmenu-body w-tabmenu-selected CMS_widgets"></div>
+	<div data-index="1" data-cms-info="2" class="w-tabmenu-body CMS_widgets"></div>
+	<div data-index="2" data-cms-info="3" class="w-tabmenu-body CMS_widgets"></div>
+</body>
+
+<script>
+	$(document).on('click', '.w-tabmenu-tab', function() {
+		var cls = 'w-tabmenu-selected';
+		var li = $(this);
+		var ul = li.parent();
+		var prev = ul.find('.' + cls).rclass(cls);
+		var container = ul.parent();
+		var sel = '.w-tabmenu-body[data-index="{0}"]';
+		container.find(sel.format(prev.attrd('index'))).rclass(cls);
+		container.find(sel.format(li.attrd('index'))).aclass(cls);
+		li.aclass(cls);
+	});
+</script>

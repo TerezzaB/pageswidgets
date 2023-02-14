@@ -1,0 +1,76 @@
+<script total>
+	exports.id = 'fancyproperties';
+	exports.name = 'Fancy properties';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/fancyproperties/preview.jpg?raw=true';
+	exports.config = { rounded: false, color: 'orange' };
+</script>
+
+<style>
+	.w-fancyproperties .property { text-align: center; margin-bottom: 30px; }
+	.w-fancyproperties .property > i { width: 40px; height: 40px; line-height: 40px; text-align: center; font-size: 34px; color: #b0b0b0; margin-bottom: 15px; }
+	.w-fancyproperties .property .heading { font-weight: 500; font-size: 22px; line-height: 22px; margin-bottom: 10px; }
+	.w-fancyproperties .property .caption { font-size: 18px; }
+	.w-fancyproperties a { display: inline-block; height: 16px; line-height: 16px; font-size: 16px; margin-top: 10px; }
+	.w-fancyproperties a i { margin-left: 8px; transition: transform .3s; }
+	.w-fancyproperties a:hover i { transform: translateX(5px); }
+</style>
+
+<settings>
+	<div class="padding">
+		<div data---="configuration__?" class="invisible">
+			<script type="text/plain">
+				[
+					{
+						name: 'rounded',
+						text: 'Rounded corners',
+						type: 'boolean'
+					}
+				]
+			</script>
+		</div>
+	</div>
+	<script>
+		exports.save = function(config, el) {
+			var cls = 'w-fancyproperties';
+			el.tclass(cls + '-rounded', config.rounded);
+		};
+	</script>
+</settings>
+
+<body>
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="property">
+				<i class="CMS_edit CMS_remove CMS_attribute fal fa-adjust"></i>
+				<div class="CMS_edit CMS_remove CMS_attribute heading">Lorem ipsum dolor</div>
+				<div class="CMS_edit CMS_remove CMS_attribute caption">
+					And free returns. See checkout for delivery dates.
+				</div>
+				<a href="#" class="CMS_remove CMS_attribute link"><span class="CMS_edit">Learn more</span><i class="far fa-angle-right CMS_edit"></i></a>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="property">
+				<i class="CMS_edit CMS_remove CMS_attribute fal fa-adjust"></i>
+				<div class="CMS_edit CMS_remove CMS_attribute heading">Lorem ipsum dolor</div>
+				<div class="CMS_edit CMS_remove CMS_attribute caption">
+					And free returns. See checkout for delivery dates.
+				</div>
+				<a href="#" class="CMS_edit CMS_remove CMS_attribute link"><span class="CMS_edit">Learn more</span><i class="far fa-angle-right CMS_edit"></i></a>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="property">
+				<i class="CMS_edit CMS_remove CMS_attribute fal fa-adjust"></i>
+				<div class="CMS_edit CMS_remove CMS_attribute heading">Lorem ipsum dolor</div>
+				<div class="CMS_edit CMS_remove CMS_attribute caption">
+					And free returns. See checkout for delivery dates.
+				</div>
+				<a href="#" class="CMS_edit CMS_remove CMS_attribute link"><span class="CMS_edit">Learn more</span><i class="far fa-angle-right CMS_edit"></i></a>
+			</div>
+		</div>
+	</div>
+</body>

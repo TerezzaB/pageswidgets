@@ -1,0 +1,48 @@
+<script total>
+	exports.id = 'expanstionpanel2';
+	exports.name = 'Expansion Panel 2';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/expansionpanel2/preview.jpg?raw=true';
+</script>
+
+<style>
+	.w-expansionpanel2-items { margin: 0; padding: 0; }
+	.w-expansionpanel2-item { list-style-type: none; padding: 0; margin: 0; border-bottom: 1px solid #E0E0E0; }
+	.w-expansionpanel2-item > span { float: right; margin: 14px 0 0; font-weight: bold; font-size: 11px; color: gray; }
+	.w-expansionpanel2-item:hover > span, .w-expansionpanel2-item:hover .w-expansionpanel2-title { color: black; }
+	.w-expansionpanel2-item > span:before { content: '\f067'; }
+	.w-expansionpanel2-title { padding: 10px 0; cursor: pointer; }
+	.w-expansionpanel2-body { display: none; padding: 10px 0; border-top: 1px dashed #F0F0F0; }
+	.w-expansionpanel2-selected .w-expansionpanel2-title { font-weight: bold; }
+	.w-expansionpanel2-selected .w-expansionpanel2-body { display: block; }
+	.w-expansionpanel2-selected > span:before { content: '\f068'; }
+	.CMS_preview .w-expansionpanel2-body { display: block !important; }
+</style>
+
+<body>
+    <div class="w-expansionpanel2-items">
+		<div class="CMS_repeat CMS_remove w-expansionpanel2-item">
+			<span class="fa"></span>
+			<div class="w-expansionpanel2-title nowrap CMS_edit">Lorem ipsum dolor sit amet</div>
+			<div class="w-expansionpanel2-body CMS_widgets" data-cms-category="Inline"></div>
+		</div>
+		<div class="CMS_repeat CMS_remove w-expansionpanel2-item">
+			<span class="fa"></span>
+			<div class="w-expansionpanel2-title nowrap CMS_edit">Lorem ipsum dolor sit amet</div>
+			<div class="w-expansionpanel2-body CMS_widgets" data-cms-category="Inline"></div>
+		</div>
+		<div class="CMS_repeat CMS_remove w-expansionpanel2-item">
+			<span class="fa"></span>
+			<div class="w-expansionpanel2-title nowrap CMS_edit">Lorem ipsum dolor sit amet</div>
+			<div class="w-expansionpanel2-body CMS_widgets" data-cms-category="Inline"></div>
+		</div>
+	</div>
+</body>
+
+<script>
+	$(document).on('click', '.w-expansionpanel2-item', function() {
+		$(this).tclass('w-expansionpanel2-selected');
+	});
+</script>

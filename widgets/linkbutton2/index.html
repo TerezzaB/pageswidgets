@@ -1,0 +1,61 @@
+<script total>
+	exports.id = 'linkbutton2';
+	exports.name = 'Link Button 2';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/linkbutton2/preview.jpg?raw=true';
+	exports.config = { color: 'blue' };
+</script>
+
+<style>
+	.w-linkbutton2 { display: block; padding: 20px; border-radius: 3px; }
+	.w-linkbutton2 i { width: 50px; float: left; font-size: 40px; }
+	.w-linkbutton2 * { text-decoration: none !important; }
+	.w-linkbutton2 > span { display: block; margin-left: 60px; line-height: 18px; }
+	.w-linkbutton2 strong { display: block; font-size: 20px; margin-bottom: 8px; }
+	.w-linkbutton2:hover * { text-decoration: none; }
+	.w-linkbutton2:hover { text-decoration: none; opacity: 0.9; }
+	.w-linkbutton2-smoke { background-color: #E0E0E0; color: gray; }
+	.w-linkbutton2-yellow { background-color: #fcffdd; color: #b1b180; }
+	.w-linkbutton2-green { background-color: #effbe6; color: #8bad89; }
+	.w-linkbutton2-blue { background-color: #F5F8FB; color: #4579B2; }
+	.w-linkbutton2-red { background-color: #fff3f4; color: #b18385; }
+	.w-linkbutton2-white { background-color: white; color: black; }
+	.w-linkbutton2-black { background-color: #202020; color: white; }
+	@media(max-width: 768px) {
+		.w-linkbutton2 strong { font-size: 16px; margin-bottom: 8px; }
+		.w-linkbutton2 { font-size: 12px; line-height: 14px; }
+	}
+</style>
+
+<settings>
+    <div class="padding">
+        <div data---="configuration__?" class="invisible">
+            <script type="text/plain">
+                [
+                    {
+                        name: 'color',
+                        text: 'Color',
+                        type: 'dropdown',
+                        items: [{ name: 'Silver', id: 'smoke' }, { name: 'Yellow', id: 'yellow' }, { name: 'Red', id: 'red' }, { name: 'Blue', id: 'blue' }, { name: 'Green', id: 'green' }, { name: 'Black', id: 'black' }, { name: 'White', id: 'white' }]
+                    }
+                ]
+            </script>
+
+            <script>
+                exports.save = function(config, el) {
+            		el.find('.w-linkbutton2').rclass2('w-linkbutton2-').aclass('w-linkbutton2-' + options.color);
+                };
+            </script>
+        </div>
+    </div>
+
+</settings>
+
+<body class="CMS_repeat">
+    <a href="#" class="w-linkbutton2 w-linkbutton2-blue">
+		<i class="fa fa-home CMS_edit"></i>
+		<span><strong class="CMS_edit">Lorem ipsum dolor sit amet</strong> <span class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia suscipit at, magnam incidunt deserunt illo atque dolorum vel, et ipsum.</span></span>
+	</a>
+</body>

@@ -1,0 +1,61 @@
+<script total>
+	exports.id = 'quote';
+	exports.name = 'Quote';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/quote/preview.jpg?raw=true';
+	exports.config = { align: 'left', color: 'blue' };
+</script>
+
+<style>
+	.w-qoute blockquote { font-size: 25px; }
+	.w-qoutealign-left { padding-left: 20px; border-left: 5px solid black; }
+	.w-qoutealign-center { text-align: center;  padding-left: 20px; border-left: 5px solid black; }
+	.w-qoutealign-right { text-align: right; padding: 0; border: none; padding-right: 20px; border-right: 5px solid black; }
+	.w-qoute-background-yellow { border-color: #F2E010; }
+	.w-qoute-background-red { border-color: #E10505; }
+	.w-qoute-background-green { border-color: #20BC50; }
+	.w-qoute-background-blue { border-color: #75A1f2; }
+	.w-qoute small:before { content: '\2014\00A0'; }
+	.w-qoute small { font-size: 15px; color: #7d8083; }
+</style>
+
+<settings>
+    <div class="padding">
+        <div data---="configuration__?" class="invisible">
+            <script type="text/plain">
+                [
+                    {
+                        name: 'align',
+                        text: 'Align',
+                        type: 'dropdown',
+                        items: [{ id: 'left', name: 'Left' }, { id: 'center', name: 'Center' }, { id: 'right', name: 'Right' }]
+                    },
+                    {
+                        name: 'color',
+                        text: 'Color',
+                        type: 'dropdown',
+                        items: [{ name: 'Yellow', id: 'yellow' }, { name: 'Red', id: 'red' }, { name: 'Blue', id: 'blue' }, { name: 'Green', id: 'green' }]
+                    }
+                ]
+            </script>
+
+            <script>
+                exports.save = function(config, el) {
+                    var container = el.find('.w-qoute blockquote');
+                    container.rclass2('w-qoute-background-').aclass('w-qoute-background-' + config.color);
+                    container.rclass2('w-qoutealign-').aclass('w-qoutealign-' + config.align);
+                };
+            </script>
+        </div>
+    </div>
+
+</settings>
+
+<body>
+    <blockquote class="w-qoute-background-blue w-qoutealign-left">
+		<p class="nmb CMS_edit">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+		<small class="CMS_edit CMS_remove">John Doe</small>
+	</blockquote>
+</body>

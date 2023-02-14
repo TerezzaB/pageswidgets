@@ -1,0 +1,78 @@
+<script total>
+	exports.id = 'alert2';
+	exports.name = 'Alert 2';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/alert2/preview.jpg?raw=true';
+    exports.config = { color: 'yellow', align: 'left', fullwidth: false };
+</script>
+
+<style>
+	.w-alert2 blockquote { padding: 20px; margin: 0; border-radius: 4px; font-size: 16px; line-height: 22px; color: gray; }
+	.w-alert2 blockquote .caption { font-size: 18px; font-weight: bold; margin-bottom: 10px; color: #333; }
+	.w-alert2-yellow { background-color: #F9F1CA; border: 2px solid #F5E79E; }
+	.w-alert2-red { background-color: #EFDFDF; border: 2px solid #E6CDD1; }
+	.w-alert2-green { background-color: #E2EFDA; border: 2px solid #DAE8C9; }
+	.w-alert2-blue { background-color: #DDEDF6; border: 2px solid #C5E7F0; }
+	.w-alert2 blockquote.w-alert2-align-left { text-align: left; }
+	.w-alert2 blockquote.w-alert2-align-right { text-align: right; }
+	.w-alert2 blockquote.w-alert2-align-center { text-align: center; }
+
+	@media(max-width: 980px) {
+		.w-alert2 blockquote { font-size: 14px; line-height: 18px; }
+		.w-alert2 blockquote .caption { font-size: 16px; }
+	}
+</style>
+
+<settings>
+    <div class="padding">
+        <div data---="configuration__?" class="invisible">
+            <script type="text/plain">
+                [
+                    {
+                        name: 'color',
+                        text: 'Color',
+                        type: 'dropdown',
+                        items: [{ name: 'Yellow', id: 'yellow' }, { name: 'Red', id: 'red' }, { name: 'Blue', id: 'blue' }, { name: 'Green', id: 'green' }]
+                    },
+                    {
+                        name: 'align',
+                        text: 'Align',
+                        type: 'dropdown',
+                        items: [{ name: 'Left', id: 'left' }, { name: 'Center', id: 'center' }, { name: 'Right', id: 'right' }]
+                    },
+                    {
+                        name: 'fullwidth',
+                        text: 'Full width',
+                        type: 'boolean'
+                    },
+                ]
+            </script>
+
+            <script>
+                exports.save = function(config, el) {
+                    el.find('blockquote').rclass2('w-alert2-').aclass('w-alert2-' + config.color);
+
+                    if (config.fullwidth)
+                        el.find('.col-lg-8').tclass('col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12 col-lg-12');
+                    else
+                        el.find('.col-lg-12').tclass('col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12 col-lg-12');
+                
+                    el.find('blockquote').rclass2('w-alert2-align-').aclass('w-alert2-align-' + config.align);
+                };
+            </script>
+        </div>
+    </div>
+</settings>
+
+<body>
+    <div class="row">
+		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
+			<blockquote class="w-alert2-yellow w-alert2-align-left">
+				<div class="caption CMS_edit">Lorem ipsum dolor sit amet</div>
+				<span class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut quidem obcaecati magnam nisi distinctio. Delectus porro eum velit molestiae perferendis?</span>
+			</blockquote>
+		</div>
+	</div>
+</body>

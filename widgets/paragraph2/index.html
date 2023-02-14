@@ -1,0 +1,57 @@
+<script total>
+	exports.id = 'paragraph2';
+	exports.name = 'Paragraph 2';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/paragraph2/preview.jpg?raw=true';
+	exports.config = { align: 'left' };
+</script>
+
+<style>
+	.w-paragraph2-title { font-size: 17px; font-weight: bold; margin-bottom: 10px; }
+	.w-paragraph2 p { line-height: 18px; margin: 0 0 15px; padding: 0; }
+	.w-paragraph2 p:last-child { margin-bottom: 0; }
+	.w-paragraph2-center * { text-align: center; }
+	.w-paragraph2-right * { text-align: right; }
+	.w-paragraph2-justify * { text-align: justify; }
+</style>
+
+<settings>
+    <div class="padding">
+        <div data---="configuration__?" class="invisible">
+            <script type="text/plain">
+                [
+                    {
+                        name: 'align',
+                        text: 'Align',
+                        type: 'dropdown',
+                        items: [{ id: 'left', name: 'Left' }, { id: 'center', name: 'Center' }, { id: 'right', name: 'Right' }, { id: 'justify', name: 'Justify' }]
+                    }
+                ]
+            </script>
+
+            <script>
+                exports.save = function(config, el) {
+                    var container = el.find('.w-paragraph2');
+                    switch (config.align) {
+                        case 'left':
+                            container.rclass2('w-paragraph2-');
+                            break;
+                        case 'right':
+                        case 'center':
+                        case 'justify':
+                            container.rclass2('w-paragraph2-').aclass('w-paragraph2-' + config.align);
+                            break;
+                    }
+                };
+            </script>
+        </div>
+    </div>
+
+</settings>
+
+<body>
+    <div class="CMS_edit w-paragraph2-title">Lorem ipsum</div>
+	<p class="CMS_edit CMS_remove CMS_repeat">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit ipsa distinctio reiciendis iste pariatur iure corporis aperiam quasi quisquam sint.</p>
+</body>

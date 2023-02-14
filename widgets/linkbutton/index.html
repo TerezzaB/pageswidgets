@@ -1,0 +1,80 @@
+<script total>
+	exports.id = 'linkbutton';
+	exports.name = 'Link Button';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/linkbutton/preview.jpg?raw=true';
+	exports.config = { block: false, size: 'medium', color: 'smoke', blockxs: false };
+</script>
+
+<style>
+	.w-linkbutton-block a { display: block; width: 100%; }
+	.w-linkbutton-small a { padding: 5px 10px; font-size: 11px; }
+	.w-linkbutton-medium a { padding: 10px 15px; }
+	.w-linkbutton-large a { padding: 20px 30px; font-size: 16px; }
+	.w-linkbutton-smoke a { background-color: #E0E0E0; color: black !important; }
+	.w-linkbutton-yellow a { background-color: #F6BB42; }
+	.w-linkbutton-orange a { background-color: #E9573F; }
+	.w-linkbutton-green a { background-color: #8CC152; }
+	.w-linkbutton-blue a { background-color: #3BAFDA; }
+	.w-linkbutton-red a { background-color: #DA4453; }
+	.w-linkbutton-pink a { background-color: #D770AD; }
+	.w-linkbutton-mint a { background-color: #37BC9B; }
+	.w-linkbutton-purple a { background-color: #967ADC; }
+	.w-linkbutton-white a { background-color: white; color: black !important; }
+	.w-linkbutton-black a { background-color: #202020; }
+	.w-linkbutton a {  color: white; text-align: center; border-radius: 3px; display: inline-block; position: relative; }
+	.w-linkbutton a:hover { text-decoration: none; opacity: 0.9; }
+	.w-linkbutton i { margin-right: 5px; }
+
+	@media(max-width: 768px) {
+		.w-linkbutton-block-xs a { width: 100%; display: block; }
+	}
+</style>
+
+<settings>
+    <div class="padding">
+        <div data---="configuration__?" class="invisible">
+            <script type="text/plain">
+                [
+                    {
+                        name: 'block',
+                        text: 'Full width',
+                        type: 'boolean'
+                    },
+                    {
+                        name: 'size',
+                        text: 'Size',
+                        type: 'dropdown',
+                        items: [{ name: 'Small', id: 'small'}, { name: 'Medium', id: 'medium'}, { name: 'Large', id: 'large'}, ]
+                    },
+                    {
+                        name: 'color',
+                        text: 'Color',
+                        type: 'dropdown',
+                        items: [{ name: 'Silver', id: 'smoke' }, { name: 'Yellow', id: 'yellow' }, { name: 'Red', id: 'red' }, { name: 'Blue', id: 'blue' }, { name: 'Green', id: 'green' }, { name: 'Pink', id: 'pink' }, { name: 'Orange', id: 'orange' }, { name: 'Purple', id: 'purple' }, { name: 'Mint', id: 'mint' }, { name: 'Black', id: 'black' }, { name: 'White', id: 'white' }]
+                    },
+                    {
+                        name: 'blockxs',
+                        text: 'Full width in XS',
+                        type: 'boolean'
+                    }
+                ]
+            </script>
+
+            <script>
+                exports.save = function(config, el) {
+                    el = el.find('.w-linkbutton');
+                    el.rclass2('w-linkbutton-').aclass('w-linkbutton-' + config.size).aclass('w-linkbutton-' + config.color);
+                    el.tclass('w-linkbutton-block', config.block).tclass('w-linkbutton-block-xs', config.blockxs);
+                };
+            </script>
+        </div>
+    </div>
+
+</settings>
+
+<body>
+	<a href="#"><i class="fa fa-chevron-right CMS_remove CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem ipsum</span></a>
+</body>

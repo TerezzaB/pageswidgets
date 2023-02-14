@@ -1,0 +1,52 @@
+<script total>
+	exports.id = 'buttonsgroup';
+	exports.name = 'Buttons group';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/buttonsgroup/preview.jpg?raw=true';
+    exports.config = {};
+</script>
+
+<style>
+	.w-buttonsgroup a.button { display: flex; color: #333; margin-bottom: 20px; align-items: center; cursor: pointer; background-color: #fff; transition: background-color var(--fast); font-size: 15px; border: 1px solid #e0e0e0; border-radius: var(--radius-md); padding: 20px; }
+	.w-buttonsgroup a.button .name { font-weight: bold; }
+	.w-buttonsgroup a.button i { font-size: 34px; margin-right: 20px; }
+	.w-buttonsgroup a.button:hover { background-color: #f0f0f0; text-decoration: none; }
+</style>
+
+<settings>
+    <div class="padding"></div>
+</settings>
+
+<body>
+	<div class="row">
+		<div class="col-sm-4 CMS_repeat CMS_remove">
+			<a href="#" class="CMS_attribute button">
+				<div><i class="CMS_edit CMS_attribute far fa-book" style="color:#AB149E"></i></div>
+				<div>
+					<div class="CMS_edit CMS_attribute name">Lorem ipsum</div>
+					<div class="CMS_edit CMS_atrribute desc">Lorem ipsum dolor sit amet</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-sm-4 CMS_repeat CMS_remove">
+			<a href="#" class="CMS_attribute button">
+				<div><i class="CMS_edit CMS_attribute far fa-cloud" style="color:#009CE0"></i></div>
+				<div>
+					<div class="CMS_edit CMS_attribute name">Lorem ipsum</div>
+					<div class="CMS_edit CMS_atrribute desc">Lorem ipsum dolor sit amet</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-sm-4 CMS_repeat CMS_remove">
+			<a href="#" class="CMS_attribute button">
+				<div><i class="CMS_edit CMS_attribute far fa-life-ring" style="color:#D33115"></i></div>
+				<div>
+					<div class="CMS_edit CMS_attribute name">Lorem ipsum</div>
+					<div class="CMS_edit CMS_atrribute desc">Lorem ipsum dolor sit amet</div>
+				</div>
+			</a>
+		</div>
+	</div>
+</body>

@@ -1,0 +1,103 @@
+<script total>
+	exports.id = 'linkcards';
+	exports.name = 'Link Cards';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/linkcards/preview.jpg?raw=true';
+    exports.config = { color: 'gray' };
+</script>
+
+<style>
+	.w-linkcards .card { padding: 30px 30px 15px 30px; position: relative; transition: transform .2s; }
+	.w-linkcards .card .heading { display: flex; justify-content: space-between; align-items: center; }
+	.w-linkcards .card .heading h2 { margin: 0 !important; margin-bottom: 0 !important; color: #fff; }
+	.w-linkcards .card .heading i { font-size: 22px; color: #fff; }
+	.w-linkcards .card .links { margin-top: 15px; }
+	.w-linkcards .card .links a { color: #fff; display: block; padding: 4px 0; font-size: 14px; }
+	.w-linkcards .card .divider { width: 50px; height: 1px; background-color: #fff; margin-top: 15px; }
+	.w-linkcards .card:hover { transform: scale(1.04); z-index: 10; box-shadow: 0 3px 10px 2px rgba(0,0,0,0.1); }
+	.w-linkcards-gray .card.card1 { background-color: #505050; }
+	.w-linkcards-gray .card.card2 { background-color: #404040; }
+	.w-linkcards-gray .card.card3 { background-color: #303030; }
+	.w-linkcards-blue .card.card1 { background-color: #395be0; }
+	.w-linkcards-blue .card.card2 { background-color: #2146d6; }
+	.w-linkcards-blue .card.card3 { background-color: #1c3cb9; }
+	.w-linkcards-red .card.card1 { background-color: #ec0000; }
+	.w-linkcards-red .card.card2 { background-color: #ca0000; }
+	.w-linkcards-red .card.card3 { background-color: #a80000; }
+	.w-linkcards-green .card.card1 { background-color: #4dbe49; }
+	.w-linkcards-green .card.card2 { background-color: #40a93c; }
+	.w-linkcards-green .card.card3 { background-color: #379033; }
+	.w-linkcards-orange .card.card1 { background-color: #ffba59; }
+	.w-linkcards-orange .card.card2 { background-color: #ffac37; }
+	.w-linkcards-orange .card.card3 { background-color: #ff9e15; }
+</style>
+
+<settings>
+    <div class="padding">
+        <div data---="configuration__?" class="invisible">
+            <script type="text/plain">
+                [
+                    {
+                        name: 'color',
+                        text: 'Color',
+                        type: 'dropdown',
+                        items: [{ text: 'Gray', id: 'gray'}, { text: 'Blue', id: 'blue' }, { text: 'Red', id: 'red' }, { text: 'Green', id: 'green' }, { text: 'Orange', id: 'orange' }]
+                    }
+                ]
+            </script>
+
+            <script>
+                exports.save = function(config, el) {
+                    var container = element.find('.w-linkcards');
+		            options.color && container.rclass2('w-linkcards-').aclass('w-linkcards-' + options.color);
+                };
+            </script>
+        </div>
+    </div>
+</settings>
+
+<body>
+    <div class="row nogutters">
+		<div class="col-sm-4">
+			<div class="card card1">
+				<div class="heading">
+					<h2 class="CMS_edit">Title</h2>
+					<i class="fa fa-adjust CMS_edit"></i>
+				</div>
+				<div class="divider"></div>
+				<div class="links">
+					<a href="#" class="CMS_repeat hellip"><span class="CMS_edit">Link</span></a>
+					<a href="#" class="CMS_repeat hellip CMS_remove"><span class="CMS_edit">Link</span></a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="card card2">
+				<div class="heading">
+					<h2 class="CMS_edit">Title</h2>
+					<i class="fa fa-adjust CMS_edit"></i>
+				</div>
+				<div class="divider"></div>
+				<div class="links">
+					<a href="#" class="CMS_repeat hellip"><span class="CMS_edit">Link</span></a>
+					<a href="#" class="CMS_repeat hellip CMS_remove"><span class="CMS_edit">Link</span></a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="card card3">
+				<div class="heading">
+					<h2 class="CMS_edit">Title</h2>
+					<i class="fa fa-adjust CMS_edit"></i>
+				</div>
+				<div class="divider"></div>
+				<div class="links">
+					<a href="#" class="CMS_repeat hellip"><span class="CMS_edit">Link</span></a>
+					<a href="#" class="CMS_repeat hellip CMS_remove"><span class="CMS_edit">Link</span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

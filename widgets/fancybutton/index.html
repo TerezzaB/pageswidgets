@@ -1,0 +1,98 @@
+<script total>
+	exports.id = 'fancybutton';
+	exports.name = 'Fancy Button';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/fancybutton/preview.jpg?raw=true';
+	exports.config = { block: false, size: 'medium', rounded: false, color: 'orange', blockxs: false };
+</script>
+
+<style>
+	.w-fancybutton a { position: relative; overflow: hidden; display: inline-block; padding: 19px 50px 16px; color: #333; background-color: #f39c13; font-size: 16px; text-transform: uppercase; font-weight: bold; }
+	.w-fancybutton a span { position: relative; z-index: 2; }
+	.w-fancybutton a:hover { text-decoration: none; color: #fff; }
+	.w-fancybutton a .curve { z-index: 1; transition: all .5s; width: 30px; height: 100%; opacity: .2; background-color: #333; position: absolute; right: -18px; top: 0; transform: skewX(-22deg); }
+	.w-fancybutton a:hover .curve { width: 100%; transform: skewX(0deg); right: 0; opacity: 1; }
+	.w-fancybutton-block a { width: 100%; text-align: center; }
+	.w-fancybutton-rounded a { border-radius: 8px; }
+
+	.w-fancybutton-black a { background-color: #333 !important; color: #fff !important; }
+	.w-fancybutton-black a .curve { background-color: #f0f0f0 !important; }
+	.w-fancybutton-black a:hover { color: #333 !important; }
+	.w-fancybutton-red a { background-color: #dc312f !important; color: #fff !important; }
+	.w-fancybutton-orange a { background-color: #f39c13 !important; }
+	.w-fancybutton-blue a { background-color: #4185f3 !important; color: #fff !important; }
+	.w-fancybutton-green a { background-color: #62b93d !important; color: #fff !important; }
+
+	@media(max-width: 768px) {
+		.w-fancybutton-block-xs a { width: 100%; text-align: center; }
+	}
+</style>
+
+<settings>
+    <div class="padding">
+        <div data---="configuration__?" class="invisible">
+            <script type="text/plain">
+                [
+                    {
+                        name: 'block',
+                        text: 'Full width',
+                        type: 'boolean'
+                    },
+					 {
+                        name: 'rounded',
+                        text: 'Rounded corners',
+                        type: 'boolean'
+                    },
+                    {
+                        name: 'size',
+                        text: 'Size',
+                        type: 'dropdown',
+                        items: [{ name: 'Small', id: 'small'}, { name: 'Medium', id: 'medium'}, { name: 'Large', id: 'large'}, ]
+                    },
+                    {
+                        name: 'color',
+                        text: 'Color',
+                        type: 'dropdown',
+						items: [{ name: 'Red', id: 'red' }, { name: 'Blue', id: 'blue' }, { name: 'Green', id: 'green' }, { name: 'Orange', id: 'orange' }, { name: 'Black', id: 'black' }]
+                    },
+                    {
+                        name: 'blockxs',
+                        text: 'Full width in XS',
+                        type: 'boolean'
+                    }
+                ]
+            </script>
+
+            <script>
+                exports.save = function(config, el) {
+					var cls = 'w-fancybutton';
+
+					config.color && el.rclass2(cls + '-').aclass(cls + '-' + config.color);
+
+					if (config.rounded)
+						el.aclass(cls + '-rounded');
+					else
+						el.rclass(cls + '-rounded');
+
+                    if (config.block)
+						el.aclass(cls + '-block', config.block);
+					else
+						el.rclass(cls + '-block', config.block);
+
+					 if (config.blockxs)
+						el.aclass(cls + '-block-xs', config.blockxs);
+					else
+						el.rclass(cls + '-block-xs', config.blockxs);
+
+                };
+            </script>
+        </div>
+    </div>
+
+</settings>
+
+<body>
+	<a href="#" class="CMS_attribute"><span class="CMS_edit">Lorem ipsum</span><span class="curve"></span></a>
+</body>

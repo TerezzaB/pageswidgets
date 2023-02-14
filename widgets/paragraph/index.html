@@ -1,0 +1,55 @@
+<script total>
+	exports.id = 'paragraph';
+	exports.name = 'Paragraph';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/paragraph/preview.jpg?raw=true';
+	exports.config = { align: 'left' };
+</script>
+
+<style>
+	.w-paragraph p { margin: 0 0 15px; padding: 0; }
+	.w-paragraph p:last-child { margin-bottom: 0; }
+	.w-paragraph-center { text-align: center; }
+	.w-paragraph-right { text-align: right; }
+	.w-paragraph-justify { text-align: justify; }
+</style>
+
+<settings>
+    <div class="padding">
+        <div data---="configuration__?" class="invisible">
+            <script type="text/plain">
+                [
+                    {
+                        name: 'align',
+                        text: 'Align',
+                        type: 'dropdown',
+                        items: [{ id: 'left', name: 'Left' }, { id: 'center', name: 'Center' }, { id: 'right', name: 'Right' }, { id: 'justify', name: 'Justify' }]
+                    }
+                ]
+            </script>
+
+            <script>
+                exports.save = function(config, el) {
+                    var container = el.find('.w-paragraph');
+                    switch (config.align) {
+                        case 'left':
+                            container.rclass2('w-paragraph-');
+                            break;
+                        case 'right':
+                        case 'center':
+                        case 'justify':
+                            container.rclass2('w-paragraph-').aclass('w-paragraph-' + config.align);
+                            break;
+                    }
+                };
+            </script>
+        </div>
+    </div>
+
+</settings>
+
+<body>
+	<p class="CMS_edit CMS_remove CMS_repeat">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit ipsa distinctio reiciendis iste pariatur iure corporis aperiam quasi quisquam sint.</p>
+</body>

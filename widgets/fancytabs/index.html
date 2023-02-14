@@ -1,0 +1,106 @@
+<script total>
+	exports.id = 'fancytabs';
+	exports.name = 'Fancy Tabs';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/fancytabs/preview.jpg?raw=true';
+	exports.config = { count: 2 };
+</script>
+
+<style>
+	.w-fancytabs .fancytabs-body { display: none; }
+	.w-fancytabs .fancytabs-body.fancytabs-selected { display: block; }
+	.w-fancytabs ul { display: flex; justify-content: center; align-items: center; margin: 30px 0; list-style: none; padding: 0; }
+	.w-fancytabs ul li { color: gray; transition: color .2s, border-color .2s; font-size: 17px; cursor: pointer; display: flex; flex-direction: column; align-items: center; padding: 10px 30px; border-bottom: 1px solid #d2d2d7; }
+	.w-fancytabs ul li:hover { color: #000; }
+	.w-fancytabs ul li.fancytabs-selected { border-color: #000; color: #000; }
+	.w-fancytabs ul li .name { display: block }
+	.w-fancytabs ul li .mobile-icon { display: none; }
+
+	.CMS_preview .fancytabs-body { display: block !important; min-height: 40px; }
+	.CMS_preview .fancytabs-body:before { content: '[Tab:' attr(data-index) ']'; font-size: 11px; margin-bottom: 5px; color: #A0A0A0; }
+
+	@media(max-width: 768px) {
+		.w-fancytabs { display: flex; flex-direction: column; margin-top: 30px; }
+		.w-fancytabs > div:first-child { order: 2; }
+		.w-fancytabs ul { margin: 0 0 30px 0; }
+		.w-fancytabs ul li .mobile-icon { display: block; font-size: 12px; }
+		.w-fancytabs ul li .name { display: none; }
+		.w-fancytabs ul li { border-bottom: 0; padding: 6px; }
+	}
+</style>
+
+<settings>
+	<div class="padding">
+		<div data---="configuration__?" class="invisible">
+			<script type="text/plain">
+				[
+					{
+						name: 'count',
+						text: 'Count of tabs',
+						type: 'number',
+						min: 2
+					}
+				]
+			</script>
+		</div>
+	</div>
+
+	<script>
+		exports.save = function(config, el) {
+
+			var cls = 'w-fancytabs';
+			var count = config.count;
+			var ul = el.find('ul');
+			var length = ul.find('li').length;
+
+			if (count === length)
+				return;
+
+			if (length < count) {
+				for (var i = length; i < count; i++) {
+					ul.append('<li class="fancytabs-tab CMS_remove" data-index="{0}"><i class="fas fa-circle mobile-icon"></i><span class="CMS_edit name">Tab {1}</span></li>'.format(i, i + 1));
+					el.append('<div data-index="{0}" class="fancytabs-body"><div class="CMS_widgets"></div>'.format(i));
+				}
+			} else {
+				for (var i = 0; i < (length - count); i++) {
+					var li = ul.find('li:last-child');
+					li.remove();
+					el.find('div[data-index="{0}"]'.format(li.attrd('index'))).remove();
+				}
+			}
+			el.find('[data-index="0"]').aclass('fancytabs-selected');
+		};
+	</script>
+
+</settings>
+
+<body>
+	<div>
+		<ul>
+			<li class="fancytabs-tab fancytabs-selected CMS_remove" data-index="0"><i class="fas fa-circle mobile-icon"></i><span class="CMS_edit name">Tab 1</span></li>
+			<li class="fancytabs-tab CMS_remove" data-index="1"><i class="fas fa-circle mobile-icon"></i><span class="CMS_edit name">Tab 2</span></li>
+		</ul>
+	</div>
+	<div data-index="0" class="fancytabs-body fancytabs-selected">
+		<div class="CMS_widgets"></div>
+	</div>
+	<div data-index="1" class="fancytabs-body">
+		<div class="CMS_widgets"></div>
+	</div>
+</body>
+
+<script>
+	$(document).on('click', '.fancytabs-tab', function() {
+		var cls = 'fancytabs-selected';
+		var li = $(this);
+		var ul = li.parent();
+		var prev = ul.find('.' + cls).rclass(cls);
+		var container = ul.closest('.w-fancytabs');
+		var sel = '.fancytabs-body[data-index="{0}"]';
+		container.find(sel.format(prev.attrd('index'))).rclass(cls);
+		container.find(sel.format(li.attrd('index'))).aclass(cls);
+		li.aclass(cls);
+	});
+</script>

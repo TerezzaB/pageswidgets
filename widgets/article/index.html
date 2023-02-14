@@ -1,0 +1,64 @@
+<script total>
+	exports.id = 'article';
+	exports.name = 'Article';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/article/preview.jpg?raw=true';
+    exports.config = { align: 'left' };
+</script>
+
+<style>
+	.w-article article { display: flex; align-items: center; margin-bottom: 40px; margin-top: 40px;}
+	.w-article article > div { width: 50%; }
+	.w-article article > div:first-child { margin-right: 60px; }
+	.w-article article h2 { font-size: 26px; margin-bottom: 10px; margin-top: 10px; line-height: 32px; }
+	.w-article article p { font-size: 15px; color: rgba(0,0,0,0.6); margin-top: 0; }
+	.w-article article.w-article-right > div:first-child { order: 2; margin-right: 0; margin-left: 60px; }
+
+	@media(max-width: 768px) {
+		.w-article article { flex-direction: column; }
+		.w-article article > div { width: 100%; }
+		.w-article article > div:first-child { margin-right: 0; }
+		.w-article article.w-article-right > div:first-child { order: 2; margin-right: 0; margin-left: 0; }
+		.w-article article.w-article-left > div:first-child { order: 2; }
+	}
+</style>
+
+<settings>
+    <div class="padding">
+        <div data---="configuration__?" class="invisible">
+            <script type="text/plain">
+                [
+                    {
+                        name: 'align',
+                        text: 'Align',
+                        type: 'dropdown',
+                        items: [{ id: 'right', name: 'Right' }, { id: 'left', name: 'Left' }]
+                    }
+                ]
+            </script>
+
+            <script>
+                exports.save = function(config, el) {
+					var cls = 'w-article';
+					
+                    config.align && el.find('article').rclass2('w-article-').aclass('w-article-' + config.align);
+					
+                };
+            </script>
+        </div>
+    </div>
+</settings>
+
+<body>
+	<article class="w-article-left">
+		<div>
+			<h2 class="CMS_edit CMS_attribute">Lorem ipsum dolor</h2>
+			<p class="CMS_edit CMS_attribute">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
+		</div>
+		<div>
+			<img alt="" class="img-responsive CMS_edit" border="0" width="540" height="443" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABQAAAAK8AQMAAACKhYA0AAAAA1BMVEWmpqa9ZwG6AAAAg0lEQVR4Xu3AAQ0AAADCIPuntscHCwIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4uEsAAX+ErqEAAAAASUVORK5CYII=" />
+		</div>
+	</article>
+</body>

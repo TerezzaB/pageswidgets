@@ -1,0 +1,88 @@
+<script total>
+	exports.id = 'textimageflex';
+	exports.name = 'Text Image Flex';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/textimageflex/preview.jpg?raw=true';
+    exports.config = { align: 'left', padding: 'small', titlesize: false };
+</script>
+
+<style>
+	.w-textimageflex h2 { font-size: 24px; }
+	.w-textimageflex p { font-size: 16px; margin-top: 0; }
+	.w-textimageflex .flexrow { display: flex; align-items: center; }
+	.w-textimageflex-left .flexitem:first-child { order: 1; }
+	.w-textimageflex-left .flexitem:last-child { order: 2; }
+	.w-textimageflex-right .flexitem:first-child { order: 2; }
+	.w-textimageflex-right .flexitem:last-child { order: 1; }
+	.w-textimageflex-padding-small { padding: 20px 0; }
+	.w-textimageflex-padding-medium { padding: 40px 0; }
+	.w-textimageflex-padding-big { padding: 60px 0; }
+
+	@media(max-width: 768px) {
+		.w-textimageflex .flexrow { flex-direction: column; align-items: flex-start; }
+		.w-textimageflex .flexrow img { margin-bottom: 30px; }
+		.w-textimageflex-right .flexitem:first-child { order: 1; }
+		.w-textimageflex-right .flexitem:last-child { order: 2; }
+	}
+</style>
+
+<settings>
+    <div class="padding">
+        <div data---="configuration__?" class="invisible">
+            <script type="text/plain">
+                [
+                    {
+                        name: 'align',
+                        text: 'Align',
+                        type: 'dropdown',
+                        items: [{ id: 'left', name: 'left' }, { id: 'right', name: 'right' }]
+                    },
+                    {
+                        name: 'padding',
+                        text: 'Padding',
+                        type: 'dropdown',
+                        items: [{ id: 'big', name: 'Big' }, { id: 'medium', name: 'Medium' }, { id: 'small', name: 'Small' }]
+                    },
+                    {
+                        name: 'titlesize',
+                        text: 'Change title to h3',
+                        type: 'boolean'
+                    }
+                ]
+            </script>
+
+            <script>
+                exports.save = function(config, el) {
+                    var container = element.find('.w-textimageflex');
+
+                    config.align && container.rclass2('w-textimageflex-').aclass('w-textimageflex-' + config.align);
+                    config.padding && container.aclass('w-textimageflex-padding-' + config.padding );
+
+                    if (config.titlesize) {
+                        container.find('h2').replaceWith(function() {
+                            return '<h3 class="CMS_edit CMS_remove">' + this.innerHTML + '</h3>';
+                        });
+                    } else {
+                        container.find('h3').replaceWith(function() {
+                            return '<h2 class="CMS_edit CMS_remove">' + this.innerHTML + '</h2>';
+                        });
+                    }
+                };
+            </script>
+        </div>
+    </div>
+</settings>
+
+<body>
+    <div class="row flexrow">
+		<div class="col-md-6 flexitem">
+			<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAiYAAAD6AQMAAACvYx54AAAAA1BMVEXW1taWrGEgAAAAJ0lEQVR4Ae3BAQ0AAADCIPuntscHDAAAAAAAAAAAAAAAAAAAAABIOkRcAAGV9dofAAAAAElFTkSuQmCC" class="img-responsive CMS_edit" alt="" border="0" />
+		</div>
+		<div class="col-md-6 flexitem CMS_widgets" data-cms-category="Inline">
+			<h2 class="CMS_edit CMS_remove">Title</h2>
+			<p class="CMS_edit CMS_remove">Lorem ipsum dolor sit amet</p>
+		</div>
+	</div>
+</body>

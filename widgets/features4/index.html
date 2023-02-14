@@ -1,0 +1,97 @@
+<script total>
+	exports.id = 'features4';
+	exports.name = 'Features 4';
+	exports.author = 'Peter Širka';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/features4/preview.jpg?raw=true';
+	exports.config = { color: 'black' };
+</script>
+
+<style>
+	.w-features4-item { margin-bottom: 50px; }
+	.w-features4-icon { display: block; margin: 0 auto; width: 80px; height: 80px; border-radius: 30px; background-color: black; margin-bottom: 10px; color: white; text-align: center; font-size: 30px; padding: 18px 0 0; }
+	.w-features4-title { text-align: center; font-weight: bold; color: black; }
+	.w-features4-title a { color: black; }
+	.w-features4-item p { font-size: 11px; color: #A0A0A0; text-align: center; line-height: 14px; max-width: 250px; margin: 10px auto 0; display: block; height: 43px; overflow: hidden; }
+	.w-features4-smoke .w-features4-icon { background-color: #E0E0E0; color: black !important; }
+	.w-features4-yellow .w-features4-icon { background-color: #F6BB42; }
+	.w-features4-orange .w-features4-icon { background-color: #E9573F; }
+	.w-features4-green .w-features4-icon { background-color: #8CC152; }
+	.w-features4-blue .w-features4-icon { background-color: #3BAFDA; }
+	.w-features4-red .w-features4-icon { background-color: #DA4453; }
+	.w-features4-pink .w-features4-icon { background-color: #D770AD; }
+	.w-features4-mint .w-features4-icon { background-color: #37BC9B; }
+	.w-features4-purple .w-features4-icon { background-color: #967ADC; }
+	.w-features4-white .w-features4-icon { background-color: white; color: black !important; }
+	.w-features4-black .w-features4-icon { background-color: #202020; }
+
+	@media(min-width: 768px) {
+		.w-features4-item:nth-last-child(1) { margin-bottom: 0; }
+		.w-features4-item:nth-last-child(2) { margin-bottom: 0; }
+		.w-features4-item:nth-last-child(3) { margin-bottom: 0; }
+	}
+
+	@media(max-width: 767px) {
+		.w-features4-item:nth-last-child(1) { margin-bottom: 0; }
+		.w-features4-item:nth-last-child(2) { margin-bottom: 0; }
+	}
+</style>
+
+<settings>
+    <div class="padding">
+        <div data---="configuration__?" class="invisible">
+            <script type="text/plain">
+                [
+                    {
+                        name: 'color',
+                        text: 'Color',
+                        type: 'dropdown',
+                        items: [{ id: 'smoke', name: 'Silver' }, { id: 'yellow', name: 'Yellow' }, { id: 'red', name: 'Red' }, { id: 'blue', name: 'Blue' }, { id: 'green', name: 'Green' }, { id: 'pink', name: 'Pink' }, { id: 'orange', name: 'Orange' }, { id: 'purple', name: 'Purple' }, { id: 'mint', name: 'Mint' }, { id: 'black', name: 'Black' }, { id: 'white', name: 'White' }]
+                    }
+                ]
+            </script>
+
+            <script>
+                exports.save = function(config, el) {
+                    el.rclass2('w-features4-').aclass('w-features4-' + config.color);
+                };
+            </script>
+        </div>
+    </div>
+</settings>
+
+<body>
+    <div class="row">
+		<div class="col-sm-4 col-xs-6 w-features4-item CMS_repeat CMS_remove">
+			<span class="w-features4-icon CMS_attribute"><i class="fa fa-users CMS_edit"></i></span>
+			<div class="w-features4-title CMS_edit">Follow us on Twitter</div>
+			<p class="CMS_edit CMS_remove">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti esse modi aperiam dignissimos reprehenderit.</p>
+		</div>
+		<div class="col-sm-4 col-xs-6 w-features4-item CMS_repeat CMS_remove">
+			<span class="w-features4-icon CMS_attribute"><i class="fa fa-users CMS_edit"></i></span>
+			<div class="w-features4-title CMS_edit">Follow us on Twitter</div>
+			<p class="CMS_edit CMS_remove">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti esse modi aperiam dignissimos reprehenderit.</p>
+		</div>
+		<div class="col-sm-4 col-xs-6 w-features4-item CMS_repeat CMS_remove">
+			<span class="w-features4-icon CMS_attribute"><i class="fa fa-users CMS_edit"></i></span>
+			<div class="w-features4-title CMS_edit">Follow us on Twitter</div>
+			<p class="CMS_edit CMS_remove">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti esse modi aperiam dignissimos reprehenderit.</p>
+		</div>
+		<div class="col-sm-4 col-xs-6 w-features4-item CMS_repeat CMS_remove">
+			<span class="w-features4-icon CMS_attribute"><i class="fa fa-users CMS_edit"></i></span>
+			<div class="w-features4-title CMS_edit">Follow us on Twitter</div>
+			<p class="CMS_edit CMS_remove">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti esse modi aperiam dignissimos reprehenderit.</p>
+		</div>
+		<div class="col-sm-4 col-xs-6 w-features4-item CMS_repeat CMS_remove">
+			<span class="w-features4-icon CMS_attribute"><i class="fa fa-users CMS_edit"></i></span>
+			<div class="w-features4-title CMS_edit">Follow us on Twitter</div>
+			<p class="CMS_edit CMS_remove">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti esse modi aperiam dignissimos reprehenderit.</p>
+		</div>
+		<div class="col-sm-4 col-xs-6 w-features4-item CMS_repeat CMS_remove">
+			<span class="w-features4-icon CMS_attribute"><i class="fa fa-users CMS_edit"></i></span>
+			<div class="w-features4-title CMS_edit">Follow us on Twitter</div>
+			<p class="CMS_edit CMS_remove">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti esse modi aperiam dignissimos reprehenderit.</p>
+		</div>
+	</div>
+</body>

@@ -1,0 +1,87 @@
+<script total>
+	exports.id = 'imageheader';
+	exports.name = 'Image Header';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/imageheader/preview.jpg?raw=true';
+    exports.config = { color: 'blue' };
+</script>
+
+<style>
+	.w-imageheader { padding-bottom: 0; position: relative; }
+	.w-imageheader-body { position: absolute; width: 100%; text-align: center; top: 200px; color: white; }
+	.w-imageheader-body p { max-width: 700px; margin: 0 auto 30px; line-height: 20px; font-size: 16px; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
+	.w-imageheader-a { font-size: 16px; color: white; position: relative; display: inline-block; padding: 12px 0; border-radius: 4px; margin: 0 10px; width: 150px; transition: all 0.2s; border: 2px solid white; }
+	.w-imageheader-a i { margin-right: 7px; }
+	.w-imageheader-a:hover { text-decoration: none; transform: scale(1.05); }
+	.w-imageheader-a-highlight { font-weight: bold; width: 200px; }
+
+	.w-imageheader-blue .w-imageheader-a-highlight { background-color: #3075D1; border-color: #3075D1; }
+	.w-imageheader-red .w-imageheader-a-highlight { background-color: #C7292D; border-color: #C7292D; }
+	.w-imageheader-dark .w-imageheader-a-highlight { background-color: #303030; border-color: #303030; }
+	.w-imageheader-green .w-imageheader-a-highlight { background-color: #76BA16; border-color: #76BA16; }
+
+	@media(max-width: 1289px) {
+		.w-imageheader-body { top: 150px; }
+		.w-imageheader-body p { font-size: 14px; line-height: 18px; max-width: 600px; }
+		.w-imageheader-a { padding: 8px 0; font-size: 14px; }
+	}
+
+	@media(max-width: 980px) {
+		.w-imageheader-body { top: 100px; }
+		.w-imageheader-body p { font-size: 14px; line-height: 18px; max-width: 600px; }
+		.w-imageheader-a { padding: 8px 0; font-size: 14px; }
+	}
+
+	@media(max-width: 768px) {
+		.w-imageheader-body { top: 50px; }
+		.w-imageheader-body p { font-size: 12px; line-height: 14px; padding: 0 20px; }
+		.w-imageheader-a { padding: 5px 0; font-size: 14px; width: 140px; }
+		.w-imageheader-body h1 { font-size: 18px; }
+	}
+
+	@media(max-width: 450px) {
+		.w-imageheader-body { top: 25px; }
+		.w-imageheader-a { padding: 5px 0; font-size: 12px; width: 120px; }
+		.w-imageheader-body p { margin-bottom: 15px !important; }
+	}
+
+	@media(max-width: 320px) {
+		.w-imageheader-body { top: 10px; }
+		.w-imageheader-a { padding: 5px 0; font-size: 12px; width: 120px; }
+	}
+</style>
+
+<settings>
+    <div class="padding">
+        <div data---="configuration__?" class="invisible">
+            <script type="text/plain">
+                [
+                    {
+                        name: 'color',
+                        text: 'Color',
+                        type: 'dropdown',
+                        items: [{ name: 'Blue', id: 'blue' }, { name: 'Red', id: 'red' }, { name: 'Green', id: 'green' }, { name: 'Dark', id: 'dark' }]
+                    }
+                ]
+            </script>
+
+            <script>
+                exports.save = function(config, el) {
+                    el.find('.w-imageheader-body').rclass2('w-imageheader-').aclass('w-imageheader-' + config.color);
+                };
+            </script>
+        </div>
+    </div>
+</settings>
+
+<body>
+    <div class="w-imageheader-body w-imageheader-blue">
+		<h1 class="CMS_edit">Lorem ipsum dolor sit amet</h1>
+		<p class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo possimus, mollitia numquam pariatur provident ab doloribus nesciunt incidunt, delectus libero!.</p>
+		<a href="#" class="CMS_edit CMS_remove w-imageheader-a w-imageheader-a-highlight">Download Now</a>
+		<a href="#" class="CMS_edit CMS_remove w-imageheader-a">Discover More</a>
+	</div>
+	<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABQAAAAK8AQMAAACKhYA0AAAAA1BMVEWmpqa9ZwG6AAAAg0lEQVR4Xu3AAQ0AAADCIPuntscHCwIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4uEsAAX+ErqEAAAAASUVORK5CYII=" alt="Banner" class="img-responsive CMS_edit" border="0" data-cms-width="1280" data-cms-height="700" />
+</body>

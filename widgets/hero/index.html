@@ -1,0 +1,44 @@
+<script total>
+	exports.id = 'hero';
+	exports.name = 'Hero';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/hero/preview.jpg?raw=true';
+    exports.config = { align: 'center', noimg: false };
+</script>
+
+<style>
+	.w-hero { color: #fff; }
+	.w-hero article { display: flex; }
+	.w-hero article > div { width: 50%; }
+	.w-hero article h1 { font-size: 40px; line-height: 50px; margin: 0;}
+	.w-hero article h2 { color: #fff; opacity: .9; font-weight: 400; font-size: 18px; line-height: 26px; margin-right: 20px; }
+	.w-hero article .btn { background-color: #fff; color: #7dc149; }
+	
+	@media(max-width: 768px) {
+		.w-hero article { flex-direction: column; }
+		.w-hero article > div { width: 100%; }
+		.w-hero article > div:first-child { order: 1; }
+		.w-hero article > div img { width: 100%; }
+	}
+</style>
+
+<settings>
+    <div class="padding"></div>
+</settings>
+
+<body>
+	<section class="CMS_attribute" style="background:linear-gradient(270deg, rgba(140,206,81,1) 0%, rgba(112,182,65,1) 100%);color:#fff">
+		<article>
+			<div>
+				<h1 class="CMS_edit CMS_attribute">Lorem ipsum <br>dolor sit amet</h1>
+				<h2 class="CMS_edit CMS_attribute">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </h2>
+				<a class="CMS_edit CMS_attribute CMS_remove btn btn-medium mt10"><i class="CMS_edit CMS_attribute fab fa-node-js mr5"></i>Explore Total.js Platform</a>
+			</div>
+			<div>
+				<img alt="" class="img-responsive CMS_edit CMS_remove" border="0" width="570" height="356" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABQAAAAK8AQMAAACKhYA0AAAAA1BMVEWmpqa9ZwG6AAAAg0lEQVR4Xu3AAQ0AAADCIPuntscHCwIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4uEsAAX+ErqEAAAAASUVORK5CYII=" />
+			</div>
+		</article>
+	</section>
+</body>

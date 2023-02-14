@@ -1,0 +1,88 @@
+<script total>
+	exports.id = 'tabs';
+	exports.name = 'Tabs';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/tabs/preview.jpg?raw=true';
+	exports.config = { count: 3 };
+</script>
+
+<style>
+	.w-tabs ul { background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEXQ0NAtGB8hAAAACklEQVQIHWNgAAAAAgABz8g15QAAAABJRU5ErkJggg==) repeat-x 0 100%; padding: 0; margin: 0; display: block; position: relative; white-space: nowrap; overflow-x: auto; overflow-y: hidden; }
+	.w-tabs li { position: relative; font-size: 12px; display: inline-block; border: 1px solid #D0D0D0; border-bottom-color: #D0D0D0; margin: 0 0 0 10px; padding: 0; border-radius: 3px 3px 0 0; background-color: #F8F8F8; text-align: center; padding: 7px 10px; color: #A0A0A0; cursor: pointer; }
+	.w-tabs li:first-child { margin-left: 0; }
+	li.w-tabs-selected { background-color: white; top: 1px; border-color: #D0D0D0; color: black; padding-top: 8px; }
+	.w-tabs-body { display: none; border: 1px solid #D0D0D0; border-top: 0; padding: 15px 15px 5px; }
+	.w-tabs-body.w-tabs-selected { display: block; }
+	.w-tabs i { margin-right: 5px; }
+	.CMS_preview .w-tabs-body { display: block !important; }
+</style>
+
+<settings>
+    <div class="padding">
+        <div data---="configuration__?" class="invisible">
+            <script type="text/plain">
+                [
+                    {
+                        name: 'count',
+                        text: 'Count of tabs',
+                        type: 'number'
+                    }
+                ]
+            </script>
+
+            <script>
+                exports.save = function(config, el) {
+                    var count = config.count;
+                    var container = el.find('.w-tabs');
+                    var ul = container.find('ul');
+                    var length = ul.find('li').length;
+
+                    if (count === length)
+                        return;
+
+                    if (length < count) {
+                        for (var i = length; i < count; i++) {
+                            ul.append('<li class="w-tabs-tab" data-index="{0}"><i class="fa fa-home CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Tab {1}</span></li>'.format(i, i + 1));
+                            container.append('<div data-index="{0}" class="w-tabs-body CMS_widgets"></div>'.format(i));
+                        }
+                    } else {
+                        for (var i = 0; i < (length - count); i++) {
+                            var li = ul.find('li:last-child');
+                            li.remove();
+                            container.find('div[data-index="{0}"]'.format(li.attrd('index'))).remove();
+                        }
+                    }
+
+                    container.find('[data-index="0"]').aclass('w-tabs-selected');
+                };
+            </script>
+        </div>
+    </div>
+</settings>
+
+<body>
+    <ul>
+		<li class="w-tabs-tab w-tabs-selected" data-index="0"><i class="fa fa-info-circle CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Tab 1</span></li>
+		<li class="w-tabs-tab" data-index="1"><i class="fa fa-cog CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Tab 2</span></li>
+		<li class="w-tabs-tab" data-index="2"><i class="fa fa-warning CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Tab 3</span></li>
+	</ul>
+	<div data-index="0" class="w-tabs-body w-tabs-selected CMS_widgets"></div>
+	<div data-index="1" class="w-tabs-body CMS_widgets"></div>
+	<div data-index="2" class="w-tabs-body CMS_widgets"></div>
+</body>
+
+<script>
+	$(document).on('click', '.w-tabs-tab', function() {
+		var cls = 'w-tabs-selected';
+		var li = $(this);
+		var ul = li.parent();
+		var prev = ul.find('.' + cls).rclass(cls);
+		var container = ul.parent();
+		var sel = '.w-tabs-body[data-index="{0}"]';
+		container.find(sel.format(prev.attrd('index'))).rclass(cls);
+		container.find(sel.format(li.attrd('index'))).aclass(cls);
+		li.aclass(cls);
+	});
+</script>

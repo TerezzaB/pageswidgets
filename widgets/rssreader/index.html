@@ -1,0 +1,129 @@
+<script total>
+	exports.id = 'rssreader';
+	exports.name = 'RSS Reader';
+	exports.author = 'Peter Širka';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/rssreader/preview.jpg?raw=true';
+	exports.config = { url: 'https://bufferwall.com/rss/', count: 9, image: true };
+
+	exports.render = function(opt, next) {
+
+		if (!opt.config.url) {
+			next('');
+			return;
+		}
+
+		RESTBuilder.GET(opt.config.url).stream(function(err, response) {
+
+			var arr = [];
+			var protocol = /^(https|http:\\\\)+/i;
+
+			response.stream.on('data', U.streamer('<item>', '</item>', function(item) {
+
+				item = item.parseXML(true);
+
+				var obj = {};
+
+				obj.title = item.item_title;
+				obj.description = item.item_description;
+				obj.date = item.item_pubDate ? Date.parse(item.item_pubDate) : null;
+				obj.url = item.item_link;
+				obj.image = (item.item_enclosure__ ? item.item_enclosure__.url : (item.item_image_url || item.item_image)) || null;
+
+				if (obj.image) {
+					if (!protocol.test(obj.image))
+						obj.image = obj.url.substring(0, obj.url.indexOf('/', 10)) + obj.image;
+				}
+
+				arr.push(obj);
+
+			})).on('end', function() {
+
+				var template = '<div class="col-sm-{4} w-rssreader-container"><div class="w-rssreader-item w-rssreader-item-small"><div class="w-rssreader-item-meta"><a href="{0}" target="_blank">{2}</a><p>{3}</p></div></div></div>';
+				var items = arr.take(opt.config.count || 9);
+				var builder = ['<div class="row">'];
+
+				for (var i = 0; i < items.length; i++) {
+
+					var item = items[i];
+
+					if (!opt.config.image || i) {
+						if (opt.config.image && i === 5)
+							builder.push('</div></div></div><div class="row">');
+						builder.push(template.format(item.url, item.image, item.title, item.description, !opt.config.image || i > 4 ? 3 : 6));
+					} else
+						builder.push(('<div class="col-sm-6 w-rssreader-container"><div class="w-rssreader-item"><a href="{0}" target="_blank" class="w-rssreader-item-image"' + (item.image ? ' style="background-image:url({1})"' : '') + '></a><div class="w-rssreader-item-meta"><a href="{0}" target="_blank">{2}</a><p>{3}</p></div></div></div><div class="col-sm-6"><div class="row">').format(item.url, item.image, item.title, item.description));
+				}
+
+				if (opt.config.image && items.length < 5)
+					builder.push('</div></div>');
+
+				builder.push('</div>');
+				next(builder.join(''));
+
+			}).on('error', function() {
+				next('');
+			});
+		});
+	};
+</script>
+
+<style>
+	.w-rssreader-item { border: 1px solid #E0E0E0; margin-bottom: 32px; }
+	.w-rssreader-item-meta { height: 90px; overflow: hidden; line-height: 18px; font-size: 14px; margin: 10px; }
+	.w-rssreader-item a { display: block; font-weight: bold; color: black; font-size: 16px; line-height: 20px; }
+	.w-rssreader-item p { margin: 10px 0 0; color: #6A6A74; }
+	.w-rssreader-item-image { height: 200px; overflow: hidden; display: block; background-size: cover; background-position: 50% 50%; }
+	.w-rssreader-item-small { height: 140px; }
+	.w-rssreader-item-small .w-rssreader-item-meta { height: 110px; }
+
+	@media(max-width: 991px) {
+		.w-rssreader-item-meta { font-size: 12px; line-height: 16px; }
+		.w-rssreader-item a { font-size: 14px; line-height: 18px; }
+		.w-rssreader-item p { margin-top: 5px; }
+	}
+
+	@media(max-width: 768px) {
+		.w-rssreader-item { margin-bottom: 15px; }
+		.w-rssreader-item-small, .w-rssreader-item-meta { height: auto !important; }
+	}
+</style>
+
+<settings>
+
+	<div class="padding">
+		<div data---="configuration__?" class="invisible">
+			<script type="text/plain">
+				[
+					{
+						name: 'url',
+						text: 'RSS address',
+						type: 'string'
+					},
+					{
+						name: 'count',
+						text: 'Count',
+						type: 'number'
+					},
+					{
+						name: 'image',
+						text: 'Layout with image',
+						type: 'boolean'
+					}
+				]
+			</script>
+		</div>
+	</div>
+
+	<script>
+		exports.save = function(config, el) {
+			el.find('b').text(config.url);
+		};
+	</script>
+
+</settings>
+
+<body>
+	<div>RSS: <b>---</b></div>
+</body>

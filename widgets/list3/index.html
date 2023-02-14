@@ -1,0 +1,112 @@
+<script total>
+	exports.id = 'list3';
+	exports.name = 'List 3';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/list3/preview.jpg?raw=true';
+	exports.config = { large: false, twocolumns: false, ordered: false, color: 'gray' };
+</script>
+
+<style>
+	.w-list3 ul { list-style: none; padding: 0; }
+	.w-list3 ul li { position: relative; padding: 8px 26px; border-bottom: 1px solid #e0e0e0; }
+	.w-list3 ul li:last-child { border-bottom: none; }
+	.w-list3 ul li:before { content: ''; width: 6px; height: 6px; border-radius: 50%; background-color: #808080; position: absolute; left: 8px; top: 16px; }
+
+	.w-list3 ol { list-style: none; counter-reset: custom-counter; padding: 0; }
+	.w-list3 ol li { position: relative; counter-increment: custom-counter; padding: 8px 26px; border-bottom: 1px solid #e0e0e0; }
+	.w-list3 ol li:last-child { border-bottom: none; }
+	.w-list3 ol li:before { content: counter(custom-counter) ". "; color: #808080; font-weight: bold; position: absolute; left: 8px; top: 8px; }
+
+	.w-list3-large { font-size: 16px; }
+	.w-list3-large li { padding: 10px 26; }
+
+	.w-list3-blue li:before { background-color: #3075D1 !important; }
+	.w-list3-red li:before { background-color: #C7292D !important; }
+	.w-list3-dark li:before { background-color: #303030 !important; }
+	.w-list3-green li:before { background-color: #76BA16 !important; }
+	.w-list3-orange li:before { background-color: #ffa500 !important; }
+	.w-list3-gray li:before { background-color: #808080 !important; }
+
+	.w-list3-ol-blue li:before { color: #3075D1 !important; }
+	.w-list3-ol-red li:before { color: #C7292D !important; }
+	.w-list3-ol-dark li:before { color: #303030 !important; }
+	.w-list3-ol-green li:before { color: #76BA16 !important; }
+	.w-list3-ol-orange li:before { color: #ffa500 !important; }
+	.w-list3-ol-gray li:before { color: #808080 !important; }
+</style>
+
+<settings>
+    <div class="padding">
+        <div data---="configuration__?" class="invisible">
+            <script type="text/plain">
+                [
+                    {
+                        name: 'large',
+                        text: 'Large',
+                        type: 'boolean',
+                    },
+                    {
+                        name: 'twocolumns',
+                        text: 'Two columns',
+                        type: 'boolean',
+                    },
+                    {
+                        name: 'ordered',
+                        text: 'Ordered list',
+                        type: 'boolean',
+                    },
+                    {
+                        name: 'color',
+                        text: 'Color',
+                        type: 'dropdown',
+                        items: [{ name: 'Gray', id: 'gray' }, { name: 'Blue', id: 'blue' }, { name: 'Red', id: 'red' }, { name: 'Green', id: 'green' }, { name: 'Dark', id: 'dark' }, { name: 'Orange', id: 'orange' }]
+                    }
+                ]
+            </script>
+
+            <script>
+                exports.save = function(config, el) {
+                    var container = el.find('.w-list3');
+		
+                    container.tclass('w-list3-large', !!config.large);
+
+                    var columns = container.find('.row').length > 0;
+                    if (config.twocolumns) {
+                        !columns && container.html('<div class="row">{0}{0}</div>'.format('<div class="col-sm-6"><ul><li class="CMS_repeat"><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li></ul></div>'));
+                    } else
+                        columns && container.html('<ul><li class="CMS_repeat"><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li></ul>');
+
+                    if (config.ordered) {
+                        container.find('ul').replaceWith(function() {
+                            return '<ol>' + this.innerHTML + '</ol>';
+                        });
+
+                        el = el.find('.w-list3 ol');
+                        el.rclass2('w-list3-').aclass('w-list3-ol-' + config.color);
+                    } else {
+                        container.find('ol').replaceWith(function() {
+                            return '<ul>' + this.innerHTML + '</ul>';
+                        });
+
+                        el = el.find('.w-list3 ul');
+                        el.rclass2('w-list3-').aclass('w-list3-' + config.color);
+                    }
+                };
+            </script>
+        </div>
+    </div>
+
+</settings>
+
+<body>
+    <div>
+		<ul>
+			<li class="CMS_repeat CMS_remove"><span class="CMS_edit CMS_unwrap">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</span></li>
+			<li class="CMS_repeat CMS_remove"><span class="CMS_edit CMS_unwrap">consectetur adipiscing elit, sed do eiusmod tempor incididunt</span></li>
+			<li class="CMS_repeat CMS_remove"><span class="CMS_edit CMS_unwrap">labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</span></li>
+			<li class="CMS_repeat CMS_remove"><span class="CMS_edit CMS_unwrap">jquis nostrud exercitation ullamco laboris</span></li>
+		</ul>
+	</div>
+</body>

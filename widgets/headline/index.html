@@ -1,0 +1,53 @@
+<script total>
+	exports.id = 'headline';
+	exports.name = 'Headline';
+	exports.author = 'Peter Širka';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/headline/preview.jpg?raw=true';
+	exports.config = { align: 'left' };
+</script>
+
+<style>
+	.w-headline p { margin-bottom: 0; }
+	.w-headline-center * { text-align: center; }
+	.w-headline-right * { text-align: right; }
+	.w-headline-justify * { text-align: justify; }
+</style>
+
+<settings>
+    <div class="padding">
+        <div data---="configuration__?" class="invisible">
+            <script type="text/plain">
+                [
+                    {
+                        name: 'align',
+                        text: 'Align',
+                        type: 'dropdown',
+                        items: [{ id: 'left', name: 'left' }, { id: 'center', name: 'center' }, { id: 'right', name: 'right' }, { id: 'justify', name: 'justify' }]
+                    }
+                ]
+            </script>
+
+            <script>
+                exports.save = function(config, el) {
+                    var container = el.find('.w-headline');
+                        switch (config.align) {
+                            case 'left':
+                                container.rclass2('w-headline-');
+                                break;
+                            case 'right':
+                            case 'center':
+                                container.rclass2('w-headline-').aclass('w-headline-' + config.align);
+                                break;
+                        }
+                    }
+            </script>
+        </div>
+    </div>
+</settings>
+
+<body>
+    <h1 class="CMS_edit"><b>Lorem ipsum</b> sodal</h1>
+    <p class="CMS_edit CMS_remove CMS_repeat">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga nulla, delectus suscipit quidem ipsum ea repellat error sed ab nostrum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga nulla, delectus suscipit quidem ipsum ea repellat error sed ab nostrum.</p>
+</body>

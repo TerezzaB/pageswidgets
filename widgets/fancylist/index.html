@@ -1,0 +1,88 @@
+<script total>
+	exports.id = 'fancylist';
+	exports.name = 'Fancy list';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/fancylist/preview.jpg?raw=true';
+	exports.config = { large: false, rounded: false, shadow: false, colormode: 'light' };
+</script>
+
+<style>
+	.w-fancylist > div .list { padding: 10px 0; margin-bottom: 30px; }
+	.w-fancylist > div .list .item { padding: 10px 0 0 15px; display: flex; align-items: flex-start; }
+	.w-fancylist > div .list .item span { border-bottom: 1px solid #e0e0e0; width: 100%; padding: 0 15px 10px 0; }
+	.w-fancylist > div .list .item:first-child { padding-top: 5px; }
+	.w-fancylist > div .list .item:last-child i { margin-bottom: 5px; }
+	.w-fancylist > div .list .item:last-child span { border-bottom: 0; padding-bottom: 5px; }
+	.w-fancylist > div .list .item i { margin-bottom: 10px; font-size: 22px; margin-right: 15px; }
+
+	.w-fancylist-large > div .list .item span { font-size: 16px; }
+	.w-fancylist-large > div .list .item i { font-size: 26px; }
+	.w-fancylist-rounded > div .list { border-radius: 10px; }
+	.w-fancylist-light > div .list .item span { border-color: rgba(0,0,0,0.1); }
+	.w-fancylist-dark > div .list .item span { border-color: rgba(255,255,255,0.2); }
+	.w-fancylist-shadow > div .list { box-shadow: 2px 4px 12px rgb(0 0 0 / 8%); }
+</style>
+
+<settings>
+	<div class="padding">
+		<div data---="configuration__?" class="invisible">
+			<script type="text/plain">
+				[
+					{
+						name: 'large',
+						text: 'Large',
+						type: 'boolean',
+					},
+					{
+						name: 'rounded',
+						text: 'Rounded corners',
+						type: 'boolean',
+					},
+					{
+						name: 'shadow',
+						text: 'Drop shadow',
+						type: 'boolean',
+					},
+					{
+						name: 'colormode',
+						text: 'Color mode',
+						type: 'dropdown',
+						items: [{ id: 'light', name: 'Light' }, { id: 'dark', name: 'Dark' }]
+					}
+				]
+			</script>
+		</div>
+	</div>
+
+	<script>
+		exports.save = function(config, el) {
+
+			var cls = 'w-fancylist';
+
+			el.tclass(cls + '-large', !!config.large);
+			el.tclass(cls + '-rounded', !!config.rounded);
+			el.tclass(cls + '-shadow', !!config.shadow);
+
+			 switch (config.colormode) {
+				case 'light':
+					el.rclass2(cls + '-dark').aclass(cls + '-' + config.colormode);
+					break;
+				case 'dark':
+					el.rclass2(cls + '-light').aclass(cls + '-' + config.colormode);
+					break;
+			}
+		};
+	</script>
+
+</settings>
+
+<body>
+	<div>
+		<div class="list CMS_attribute">
+			<div class="item CMS_repeat"><i class="fas fa-circle CMS_edit"></i><span class="CMS_edit CMS_attribute">Lorem ipsum dolor sit amet</span></div>
+			<div class="item CMS_repeat CMS_remove"><i class="fas fa-circle CMS_edit"></i><span class="CMS_edit CMS_attribute">Lorem ipsum dolor sit amet</span></div>
+		</div>
+	</div>
+</body>

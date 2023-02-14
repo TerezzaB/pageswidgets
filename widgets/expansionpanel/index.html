@@ -1,0 +1,58 @@
+<script total>
+	exports.id = 'expansionpanel';
+	exports.name = 'Expansion Panel 2';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/expansionpanel/preview.jpg?raw=true';
+</script>
+
+<style>
+	.w-expansionpanel-items { margin: 0; padding: 0; border: 1px solid #E0E0E0; border-radius: 4px; background-color: white; }
+	.w-expansionpanel-item { list-style-type: none; padding: 0; margin: 0; border-top: 1px solid #E0E0E0; }
+	.w-expansionpanel-item:first-child { border-top: 0; }
+	.w-expansionpanel-item:first-child .w-expansionpanel-title { border-radius: 3px 3px 0 0; }
+	.w-expansionpanel-title { padding: 15px 15px; cursor: pointer; font-size: 18px; }
+	.w-expansionpanel-title:hover { background-color: #F0F0F0; }
+	.w-expansionpanel-body { display: none; padding: 20px 20px 0; }
+	.w-expansionpanel-selected .w-expansionpanel-title { background-color: #4E82F7; font-weight: bold; color: white; }
+	.w-expansionpanel-selected .w-expansionpanel-body { display: block; }
+	.CMS_preview .w-expansionpanel-body { display: block !important; }
+
+	@media(max-width: 980px) {
+		.w-expansionpanel-title { font-size: 16px; }
+	}
+</style>
+
+<body>
+    <div class="w-expansionpanel-items">
+		<div class="CMS_repeat CMS_remove w-expansionpanel-item">
+			<div class="w-expansionpanel-title nowrap CMS_edit">Lorem ipsum dolor sit amet</div>
+			<div class="w-expansionpanel-body CMS_widgets" data-cms-category="Content,Columns"></div>
+		</div>
+		<div class="CMS_repeat CMS_remove w-expansionpanel-item">
+			<div class="w-expansionpanel-title nowrap CMS_edit">Lorem ipsum dolor sit amet</div>
+			<div class="w-expansionpanel-body CMS_widgets" data-cms-category="Content,Columns"></div>
+		</div>
+		<div class="CMS_repeat CMS_remove w-expansionpanel-item">
+			<div class="w-expansionpanel-title nowrap CMS_edit">Lorem ipsum dolor sit amet</div>
+			<div class="w-expansionpanel-body CMS_widgets" data-cms-category="Content,Columns"></div>
+		</div>
+	</div>
+</body>
+
+<script>
+	$(document).on('click', '.w-expansionpanel-item', function() {
+		var cls = 'w-expansionpanel-selected';
+		var el = $(this);
+
+		if (el.hclass(cls)) {
+			el.rclass(cls);
+			return;
+		}
+
+		var container = el.closest('.w-expansionpanel-items');
+		container.find('.' + cls).rclass(cls);
+		el.aclass(cls);
+	});
+</script>

@@ -1,0 +1,131 @@
+<script total>
+	exports.id = 'table';
+	exports.name = 'Table';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/table/preview.jpg?raw=true';
+	exports.config = { head: false, columns: '50%, 50%', align: 'left, left', nowrap: false };
+</script>
+
+<style>
+	.w-table { table-layout: fixed; margin: 0; width: 100%; }
+	.w-table th { border: 1px solid #E0E0E0; padding: 10px 10px; font-weight: bold; background-color: #F8F8F8; }
+	.w-table td { border: 1px solid #E0E0E0; padding: 5px 10px; }
+</style>
+
+<settings>
+    <div class="padding">
+        <div data---="configuration__?" class="invisible">
+            <script type="text/plain">
+                [
+                    {
+                        name: 'head',
+                        text: 'Head',
+                        type: 'boolean'
+                    },
+                    {
+                        name: 'columns',
+                        text: 'Columns',
+                        type: 'string',
+                        summary: '50%, 50%'
+                    },
+                    {
+                        name: 'align',
+                        text: 'Align',
+                        type: 'string',
+                        summary: 'left, left'
+                    },
+                    {
+                        name: 'nowrap',
+                        text: 'No wrap',
+                        type: 'boolean'
+                    }
+                ]
+            </script>
+
+            <script>
+                exports.save = function(config, el) {
+            		var columns = config.columns.split(',').trim();
+                    var align = config.align.split(',').trim();
+                    var count = columns.length;
+
+                    var g = el.find('colgroup');
+                    g.find('col').remove();
+
+                    for (var i = 0; i < count; i++)
+                        g.append('<col style="width:{0}" />'.format(columns[i] || 'auto'));
+
+                    el.find('tbody').find('tr').each(function(index) {
+
+                        var tr = $(this);
+                        var td = tr.find('td');
+
+                        if (td.length < count) {
+                            for (var i = td.length; i < count; i++)
+                                tr.append('<td><div class="CMS_edit">Lorem Ipsum</div></td>');
+                        } else if (td.length > count) {
+                            for (var i = 0; i < (td.length - count); i++)
+                                tr.find('td:last-child').remove();
+                        }
+
+                    });
+
+                    if (config.head) {
+                        var head = el.find('thead');
+
+                        if (!head.length) {
+                            $('<thead><tr></tr></thead>').insertBefore(el.find('tbody'));
+                            head = el.find('thead');
+                        }
+
+                        head.find('tr').each(function() {
+                            var tr = $(this);
+                            var th = tr.find('th');
+                            if (th.length < count) {
+                                for (var i = th.length; i < count; i++)
+                                    tr.append('<th><div class="CMS_edit">Lorem Ipsum</div></th>');
+                            } else if (th.length > count) {
+                                for (var i = 0; i < (th.length - count); i++)
+                                    tr.find('th:last-child').remove();
+                            }
+                        });
+                    } else
+                        el.find('thead').remove();
+
+                    el.find('tr').each(function() {
+                        $(this).find('td,th').each(function(index) {
+                            var el = $(this);
+                            if (!align[index] || align[index] === 'left')
+                                el.rclass();
+                            else
+                                el.rclass().aclass(align[index]);
+                        });
+                    });
+
+                    el.find('table').find('div').tclass('wnowrap', config.nowrap);
+                };
+            </script>
+        </div>
+    </div>
+
+</settings>
+
+<body>
+    <table class="w-table">
+		<colgroup>
+			<col style="width:50%" />
+			<col style="width:50%" />
+		</colgroup>
+		<tbody>
+			<tr class="CMS_repeat">
+				<td><div class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores non repellat harum impedit quis officiis atque, magni ullam reiciendis assumenda?</div></td>
+				<td><div class="CMS_edit">Lorem Ipsum</div></td>
+			</tr>
+			<tr class="CMS_repeat CMS_remove">
+				<td><div class="CMS_edit">Lorem Ipsum</div></td>
+				<td><div class="CMS_edit">Lorem Ipsum</div></td>
+			</tr>
+		</tbody>
+	</table>
+</body>

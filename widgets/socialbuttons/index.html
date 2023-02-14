@@ -1,0 +1,29 @@
+<script total>
+	exports.id = 'socialbuttons';
+	exports.name = 'Social Buttons';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/socialbuttons/preview.jpg?raw=true';
+</script>
+
+<style>
+	.w-socialbuttons { height: 58px; }
+	.w-socialbuttons a { display: block; float: left; width: 33.33%; padding: 18px 0; font-size: 16px; color: white; text-align: center; }
+	.w-socialbuttons a:hover { text-decoration: none; opacity: 0.8; }
+	.w-socialbuttons span { margin-left: 8px; }
+	.w-socialbuttons-facebook { background-color: #415a93; }
+	.w-socialbuttons-twitter { background-color: #4babe7; }
+	.w-socialbuttons-youtube { background-color: #ac2217; }
+    
+	@media(max-width: 768px) {
+		.w-socialbuttons span { display: none; }
+		.w-socialbuttons i { font-size: 24px; }
+	}
+</style>
+
+<body>
+    <a href="https://www.facebook.com/totaljs.web.framework/" class="w-socialbuttons-facebook" target="_blank"><i class="fab fa-facebook"></i><span class="CMS_edit">Facebook</span></a>
+	<a href="https://twitter.com/totalframework" class="w-socialbuttons-twitter" target="_blank"><i class="fab fa-twitter"></i><span class="CMS_edit">Twitter</span></a>
+	<a href="https://www.youtube.com/results?search_query=Total.js" class="w-socialbuttons-youtube" target="_blank"><i class="fab fa-youtube"></i><span class="CMS_edit">YouTube</span></a>
+</body>

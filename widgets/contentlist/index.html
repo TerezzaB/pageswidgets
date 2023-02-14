@@ -1,0 +1,34 @@
+<script total>
+	exports.id = 'contentlist';
+	exports.name = 'Content list';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/contentlist/preview.jpg?raw=true';
+    exports.config = {};
+</script>
+
+<style>
+	.w-contentlist > div { margin-bottom: 30px; background-color: #f9f5f1; padding: 10px 25px; }
+	.w-contentlist > div ul { margin: 0; padding: 0; list-style: none; }
+	.w-contentlist > div ul li { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; font-size: 16px; color: rgba(0,0,0,0.6); border-bottom: 1px solid rgba(0,0,0,0.1); }
+	.w-contentlist > div ul li:last-child { border-bottom: 0; }
+	.w-contentlist > div ul li a { color: inherit; text-decoration: none; transition: color .2s; }
+	.w-contentlist > div ul li a:hover { color: #000; }
+	.w-contentlist > div ul li i { color: #000; }
+</style>
+
+<settings>
+    <div class="padding"></div>
+</settings>
+
+<body>
+	<div class="CMS_attribute">
+		<ul>
+			<li class="CMS_atribute CMS_remove CMS_repeat"><a class="CMS_edit" href="/">Lorem ipsum dolor sit amet</a><i class="CMS_edit CMS_attribute fal fa-external-link"></i></li>
+			<li class="CMS_atribute CMS_remove CMS_repeat"><a class="CMS_edit" href="/">Gonsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</a><i class="CMS_edit CMS_attribute fal fa-external-link"></i></li>
+			<li class="CMS_edit CMS_atribute CMS_remove CMS_repeat"><span class="CMS_edit">Ut enim ad minim veniam</span><i class="CMS_edit CMS_attribute fal fa-check"></i></li>
+			<li class="CMS_edit CMS_atribute CMS_remove CMS_repeat"><span class="CMS_edit">Duis aute irure dolor in reprehenderit in voluptate</span><i class="CMS_edit CMS_attribute fal fa-check"></i></li>
+		</ul>
+	</div>
+</body>

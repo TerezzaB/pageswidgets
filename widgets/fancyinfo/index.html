@@ -1,0 +1,78 @@
+<script total>
+	exports.id = 'fancyinfo';
+	exports.name = 'Fancy Info';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/fancyinfo/preview.jpg?raw=true';
+	exports.config = { colormode: 'light', color: 'orange' };
+</script>
+
+<style>
+	.w-fancyinfo .boxes { display: flex; }
+	.w-fancyinfo .boxes .box { position: relative; width: 25%; padding-top: 100px; margin-bottom: 100px; border-right: 1px solid rgba(255, 255, 255, 0.1); color: #fff; text-align: center; }
+	.w-fancyinfo .boxes .box:last-child { border-right: 0; }
+	.w-fancyinfo .boxes .box .number { font-size: 60px; margin-bottom: 15px; font-weight: bold; line-height: 60px; }
+	.w-fancyinfo .boxes .box .heading { text-transform: uppercase; font-size: 16px; opacity: .4; font-weight: bold; }
+	.w-fancyinfo .boxes .box:before { content: ''; height: 4px; transition: transform .4s; transform: scale(0); background-color: orange; position: absolute; top: 0; right: 0; left: 0; min-width: 100%; }
+	.w-fancyinfo .boxes .box:hover:before { transform: scale(1); }
+	.w-fancyinfo-dark .boxes .box { color: #fff; }
+	.w-fancyinfo-light .boxes .box { color: #333; }
+	.w-fancyinfo-border-red .boxes .box:before { background-color: #dc312f; }
+	.w-fancyinfo-border-blue .boxes .box:before { background-color: #4185f3; }
+	.w-fancyinfo-border-green .boxes .box:before { background-color: #62b93d; }
+	.w-fancyinfo-border-orange .boxes .box:before { background-color: #f39c13; }
+	.w-fancyinfo-border-black .boxes .box:before { background-color: #000; }
+	.w-fancyinfo-border-white .boxes .box:before { background-color: #fff; }
+
+	@media(max-width: 768px) {
+		.w-fancyinfo .boxes { flex-direction: column; }
+		.w-fancyinfo .boxes .box { width: 100%; border-right: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 30px; padding-top: 30px; margin-bottom: 30px; }
+		.w-fancyinfo .boxes .box:last-child { border-bottom: 0;}
+		.w-fancyinfo .boxes .box .number { font-size: 50px; line-height: 50px; }
+	}
+</style>
+
+<settings>
+	<div class="padding">
+		<div data---="configuration__?" class="invisible">
+			<script type="text/plain">
+				[
+					{
+						name: 'color',
+						text: 'Border color',
+						type: 'dropdown',
+						items: [{ name: 'White', id: 'white' }, { name: 'Red', id: 'red' }, { name: 'Blue', id: 'blue' }, { name: 'Green', id: 'green' }, { name: 'Orange', id: 'orange' }, { name: 'Black', id: 'black' }]
+					}
+				]
+			</script>
+		</div>
+	</div>
+	<script>
+		exports.save = function(config, el) {
+			config.colormode && el.rclass2('w-fancyinfo-').aclass('w-fancyinfo-' + config.colormode);
+			config.color && el.rclass2('w-fancyinfo-border-').aclass('w-fancyinfo-border-' + config.color);
+		};
+	</script>
+</settings>
+
+<body>
+   <div class="boxes">
+		<div class="CMS_repeat CMS_remove CMS_edit box">
+			<div class="CMS_edit number">8000</div>
+			<div class="CMS_edit heading">Projects</div>
+		</div>
+	   <div class="CMS_repeat CMS_remove CMS_edit box">
+			<div class="CMS_edit number">8000</div>
+			<div class="CMS_edit heading">Projects</div>
+		</div>
+	   <div class="CMS_repeat CMS_remove CMS_edit box">
+			<div class="CMS_edit number">8000</div>
+			<div class="CMS_edit heading">Projects</div>
+		</div>
+	   <div class="CMS_repeat CMS_remove CMS_edit box">
+			<div class="CMS_edit number">8000</div>
+			<div class="CMS_edit heading">Projects</div>
+		</div>
+	</div>
+</body>

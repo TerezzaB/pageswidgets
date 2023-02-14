@@ -1,0 +1,58 @@
+<script total>
+	exports.id = 'contactbutton';
+	exports.name = 'Contact Button';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/contactbutton/preview.jpg?raw=true';
+	exports.config = { color: 'yellow' };
+</script>
+
+<style>
+	.w-contactbutton a { display: block; border-radius: 20px; color: white; height: 30px; margin-bottom: 7px; line-height: 30px; }
+	.w-contactbutton a * { text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+	.w-contactbutton i { margin-right: 3px; float: left; line-height: 30px; }
+	.w-contactbutton a strong { float: left; width: 140px; padding: 0 0 0 15px; display: block; }
+	.w-contactbutton a span { margin-left: 140px; padding: 0 15px 0 0; display: block; text-align: right; }
+	.w-contactbutton a:hover { opacity: 0.8; text-decoration: none; }
+	.w-contactbutton-smoke a { background-color: #E0E0E0; }
+	.w-contactbutton-yellow a { background-color: #FBE651; color: black; }
+	.w-contactbutton-orange a { background-color: #E9573F; }
+	.w-contactbutton-green a { background-color: #8CC152; }
+	.w-contactbutton-blue a { background-color: #3BAFDA; }
+	.w-contactbutton-red a { background-color: #DA4453; }
+	.w-contactbutton-pink a { background-color: #D770AD; }
+	.w-contactbutton-mint a { background-color: #37BC9B; }
+	.w-contactbutton-purple a { background-color: #967ADC; }
+	.w-contactbutton-white a { background-color: white; color: black !important; }
+	.w-contactbutton-black a { background-color: #202020; }
+</style>
+
+<settings>
+    <div class="padding">
+        <div data---="configuration__?" class="invisible">
+            <script type="text/plain">
+                [
+                    {
+                        name: 'color',
+                        text: 'Color',
+                        type: 'dropdown',
+                        items: [{ name: 'Silver', id: 'smoke' }, { name: 'Yellow', id: 'yellow' }, { name: 'Red', id: 'red' }, { name: 'Blue', id: 'blue' }, { name: 'Green', id: 'green' }, { name: 'Pink', id: 'pink' }, { name: 'Orange', id: 'orange' }, { name: 'Purple', id: 'purple' }, { name: 'Mint', id: 'mint' }, { name: 'Black', id: 'black' }, { name: 'White', id: 'white' }]
+                    }
+                ]
+            </script>
+
+            <script>
+                exports.save = function(config, el) {
+                    el.find('.w-contactbutton').rclass2('w-contactbutton-').aclass('w-contactbutton-' + config.color);
+                };
+            </script>
+        </div>
+    </div>
+
+</settings>
+
+<body class="w-contactbutton-yellow" class="CMS_attributte">
+    <a href="#" class="CMS_repeat"><strong class="CMS_edit">Email</strong><span class="CMS_edit">petersirka@gmail.com</span></a>
+    <a href="#" class="CMS_repeat CMS_remove"><strong class="CMS_edit">Phone</strong><span class="CMS_edit">+421903163302</span></a>
+</body>

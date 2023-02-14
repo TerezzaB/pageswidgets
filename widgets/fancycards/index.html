@@ -1,0 +1,81 @@
+<script total>
+	exports.id = 'fancycards';
+	exports.name = 'Fancy cards';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/fancycards/preview.jpg?raw=true';
+    exports.config = { colormode: 'dark', rounded: false };
+</script>
+
+<style>
+	.w-fancycards .cards { display: flex; justify-content: space-between; margin: 15px -7px; flex-wrap: wrap; }
+	.w-fancycards .cards .card { position: relative; overflow: hidden; margin: 12px 7px; padding: 50px; width: 31.3333%; transition: background-color .4s; background-color: #1c1e22; color: #fff; display: flex; flex-direction: column; }
+	.w-fancycards .cards .card .header { display: flex; justify-content: space-between; align-items: center; }
+	.w-fancycards .cards .card .header .icon i { font-size: 46px; color: #f39c13; }
+	.w-fancycards .cards .card .heading { text-transform: uppercase; font-size: 18px; }
+	.w-fancycards .cards .card .caption { margin-top: 20px; font-size: 14px; }
+	.w-fancycards .cards .card:hover { background-color: #f8f8f8; color: #333; }
+	.w-fancycards .cards .card .triangle { transition: bottom .4s; position: absolute; bottom: -100%; right: -29px; width: 100px; height: 200px; transform: rotate(45deg); opacity: .5; background-color: gray; }
+	.w-fancycards .cards .card:hover .triangle { display: block; bottom: -50%; }
+	.w-fancycards-light .cards .card { background-color: #f0f0f0; color: #333; }
+	.w-fancycards-dark .cards .card { background-color: #1c1e22; color: #fff; }
+	.w-fancycards-rounded .cards .card {  border-radius: 10px; }
+</style>
+
+<settings>
+    <div class="padding">
+        <div data---="configuration__?" class="invisible">
+            <script type="text/plain">
+                [
+                    {
+                        name: 'colormode',
+                        text: 'Color mode',
+                        type: 'dropdown',
+                        items: [{ id: 'light', name: 'Light' }, { id: 'dark', name: 'Dark' }]
+                    },
+					{
+                        name: 'rounded',
+                        text: 'Rounded corners',
+                        type: 'boolean',
+                    }
+                ]
+            </script>
+
+            <script>
+                exports.save = function(config, el) {
+					var cls = 'w-fancycards';
+
+                    config.colormode && el.rclass2('w-fancycards-').aclass('w-fancycards-' + config.colormode);
+
+					if (config.rounded)
+						el.aclass(cls + '-rounded');
+					else
+						el.rclass(cls + '-rounded');
+                };
+            </script>
+        </div>
+    </div>
+</settings>
+
+<body>
+    <div class="cards">
+		<div class="card CMS_repeat CMS_remove CMS_attribute">
+			<div class="header">
+				<div class="icon"><i class="fab fa-500px CMS_edit"></i></div>
+				<div class="heading CMS_edit">Heading</div>
+			</div>
+			<div class="caption CMS_edit">Lorem ipsum dolor sit amet</div>
+			<div class="triangle"></div>
+		</div>
+
+		<div class="card CMS_repeat CMS_remove CMS_attribute">
+			<div class="header">
+				<div class="icon"><i class="fab fa-500px CMS_edit"></i></div>
+				<div class="heading CMS_edit">Heading</div>
+			</div>
+			<div class="caption CMS_edit">Lorem ipsum dolor sit amet</div>
+			<div class="triangle"></div>
+		</div>
+	</div>
+</body>

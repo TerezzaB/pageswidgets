@@ -1,0 +1,59 @@
+<script total>
+	exports.id = 'imgheadline';
+	exports.name = 'Image headline';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://github.com/totaljs/pageswidgets/main/widgets/imgheadline/preview.jpg?raw=true';
+	exports.config = { align: 'left' };
+</script>
+
+<style>
+	.w-imgheadline { margin-bottom: 30px; margin-top: 30px; display: flex; align-items: flex-start; justify-content: space-between; }
+	.w-imgheadline h2 { margin: 0; font-size: 32px; line-height: 36px; margin-bottom: 30px; }
+	.w-imgheadline p { font-size: 16px; line-height: 26px; margin: 0; color: rgba(0,0,0,0.6); }
+	.w-imgheadline img { max-width: 350px; }
+	.w-imgheadline.w-imgheadline-right > div:first-child { order: 2; margin-left: 30px; }
+	.w-imgheadline.w-imgheadline-center { flex-direction: column; align-items: center; justify-content: center; text-align: center;  }
+</style>
+
+<settings>
+    <div class="padding">
+        <div data---="configuration__?" class="invisible">
+            <script type="text/plain">
+                [
+                    {
+                        name: 'align',
+                        text: 'Align',
+                        type: 'dropdown',
+                        items: [{ id: 'left', name: 'left' }, { id: 'center', name: 'Center' }, { id: 'right', name: 'Right' }]
+                    }
+                ]
+            </script>
+
+            <script>
+                exports.save = function(config, el) {
+					switch (config.align) {
+						case 'left':
+							el.rclass2('w-imgheadline-');
+							break;
+						case 'right':
+						case 'center':
+							el.rclass2('w-imgheadline-').aclass('w-imgheadline-' + config.align);
+							break;
+					}
+				}
+            </script>
+        </div>
+    </div>
+</settings>
+
+<body>
+	<div>
+		<h2 class="CMS_edit CMS_attribute">Lorem ipsum dolor sit amet</h2>
+		<p class="CMS_edit CMS_attribute">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	</div>
+	<div>
+		<img class="CMS_edit CMS_attribute img-responsive" alt="" border="0" data-cms-width="350" width="350px" src="data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABQAAD/4QMxaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA3LjEtYzAwMCA3OS5lZGEyYjNmYWMsIDIwMjEvMTEvMTctMTc6MjM6MTkgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyMy4xIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjY2MzlBQ0VDODMzNjExRUM4OEQ1OEZBQTE0MTMwMkZGIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjY2MzlBQ0VEODMzNjExRUM4OEQ1OEZBQTE0MTMwMkZGIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NjYzOUFDRUE4MzM2MTFFQzg4RDU4RkFBMTQxMzAyRkYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NjYzOUFDRUI4MzM2MTFFQzg4RDU4RkFBMTQxMzAyRkYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7/7gAOQWRvYmUAZMAAAAAB/9sAhAACAgICAgICAgICAwICAgMEAwICAwQFBAQEBAQFBgUFBQUFBQYGBwcIBwcGCQkKCgkJDAwMDAwMDAwMDAwMDAwMAQMDAwUEBQkGBgkNCwkLDQ8ODg4ODw8MDAwMDA8PDAwMDAwMDwwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAz/wAARCABQAFADAREAAhEBAxEB/8QASwABAQAAAAAAAAAAAAAAAAAAAAkBAQAAAAAAAAAAAAAAAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAARAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/ALgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//9k="/>
+	</div>
+</body>
