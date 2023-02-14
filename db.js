@@ -57,8 +57,7 @@ PATH.fs.readdir('widgets', function(err, response) {
 			data.group = group ? evaluate(group[0]).group : '';
 			data.name = name ? evaluate(name[0]).name : '';
 			data.preview = preview ? evaluate(preview[0]).preview : '';
-
-			data.url = 'https://raw.githubusercontent.com/totaljs/pageswidgets/main/widgets/' + filename + '/index.html';
+			data.url = 'https://cdn.totaljs.com/pages/' + filename + '/index.html';
 			data.author = author ? evaluate(author[0]).author : '';
 			data.icon = icon ? evaluate(icon[0]).icon : '';
 			data.color = color ? evaluate(color[0]).color : '';
