@@ -17,7 +17,7 @@ jobs:
     - name: Update db.json and move it all to ./build/
       run: |
         mkdir dist
-        cp widgets/* dist
+        cp widgets/* dist/
         npm install total4
         node db.js
         cp db.json dist/db.json
