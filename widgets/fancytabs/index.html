@@ -33,7 +33,7 @@
 
 <settings>
 	<div class="padding">
-		<div data---="configuration__?" class="invisible">
+		<ui-component name="configuration" path="?" class="invisible">
 			<script type="text/plain">
 				[
 					{
@@ -44,7 +44,7 @@
 					}
 				]
 			</script>
-		</div>
+		</ui-component>
 	</div>
 
 	<script>
@@ -60,7 +60,7 @@
 
 			if (length < count) {
 				for (var i = length; i < count; i++) {
-					ul.append('<li class="fancytabs-tab CMS_remove" data-index="{0}"><i class="fas fa-circle mobile-icon"></i><span class="CMS_edit name">Tab {1}</span></li>'.format(i, i + 1));
+					ul.append('<li class="fancytabs-tab CMS_remove" data-index="{0}"><i class="ti ti-circle mobile-icon"></i><span class="CMS_edit name">Tab {1}</span></li>'.format(i, i + 1));
 					el.append('<div data-index="{0}" class="fancytabs-body"><div class="CMS_widgets"></div>'.format(i));
 				}
 			} else {
@@ -79,8 +79,8 @@
 <body>
 	<div>
 		<ul>
-			<li class="fancytabs-tab fancytabs-selected CMS_remove" data-index="0"><i class="fas fa-circle mobile-icon"></i><span class="CMS_edit name">Tab 1</span></li>
-			<li class="fancytabs-tab CMS_remove" data-index="1"><i class="fas fa-circle mobile-icon"></i><span class="CMS_edit name">Tab 2</span></li>
+			<li class="fancytabs-tab fancytabs-selected CMS_remove" data-index="0"><i class="ti ti-circle mobile-icon"></i><span class="CMS_edit name">Tab 1</span></li>
+			<li class="fancytabs-tab CMS_remove" data-index="1"><i class="ti ti-circle mobile-icon"></i><span class="CMS_edit name">Tab 2</span></li>
 		</ul>
 	</div>
 	<div data-index="0" class="fancytabs-body fancytabs-selected">

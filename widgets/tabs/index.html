@@ -21,7 +21,7 @@
 
 <settings>
     <div class="padding">
-        <div data---="configuration__?" class="invisible">
+        <ui-component name="configuration" path="?" class="invisible">
             <script type="text/plain">
                 [
                     {
@@ -44,7 +44,7 @@
 
                     if (length < count) {
                         for (var i = length; i < count; i++) {
-                            ul.append('<li class="w-tabs-tab" data-index="{0}"><i class="fa fa-home CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Tab {1}</span></li>'.format(i, i + 1));
+                            ul.append('<li class="w-tabs-tab" data-index="{0}"><i class="ti ti-home CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Tab {1}</span></li>'.format(i, i + 1));
                             container.append('<div data-index="{0}" class="w-tabs-body CMS_widgets"></div>'.format(i));
                         }
                     } else {
@@ -64,9 +64,9 @@
 
 <body>
     <ul>
-		<li class="w-tabs-tab w-tabs-selected" data-index="0"><i class="fa fa-info-circle CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Tab 1</span></li>
-		<li class="w-tabs-tab" data-index="1"><i class="fa fa-cog CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Tab 2</span></li>
-		<li class="w-tabs-tab" data-index="2"><i class="fa fa-warning CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Tab 3</span></li>
+		<li class="w-tabs-tab w-tabs-selected" data-index="0"><i class="ti ti-info-circle CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Tab 1</span></li>
+		<li class="w-tabs-tab" data-index="1"><i class="ti ti-cog CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Tab 2</span></li>
+		<li class="w-tabs-tab" data-index="2"><i class="ti ti-warning CMS_edit CMS_remove"></i><span class="CMS_edit CMS_unwrap">Tab 3</span></li>
 	</ul>
 	<div data-index="0" class="w-tabs-body w-tabs-selected CMS_widgets"></div>
 	<div data-index="1" class="w-tabs-body CMS_widgets"></div>
