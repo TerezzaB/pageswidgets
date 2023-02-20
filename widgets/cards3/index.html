@@ -1,0 +1,94 @@
+<script total>
+
+	// Meta
+	exports.id = 'cards3';
+	exports.name = 'Cards 3';
+	exports.author = 'Total.js';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://cdn.totaljs.com/pages/cards3/cards3.png';
+	exports.config = { color: 'black' };
+</script>
+
+<style>
+	.w-cards3 .item { display: flex; flex-direction: column; align-items: center; background-color: #fff; padding: 30px 20px; aspect-ratio: 1 / 1; }
+	/*.w-cards3 .item .img { max-width: 100%; }*/
+	.w-cards3 .cta { text-transform: uppercase; font-size: 28px; line-height: 40px; color: #333; }
+	.w-cards3 .cta i { color: #333; }
+	.w-cards3 .imgwrapper { max-height: 180px; display: grid; place-items: center; margin-bottom: 40px; }
+
+	.w-cards-3 .ui-dark .cta { color: #F0F0F0; }
+	.w-cards-3 .ui-dark .cta i { color: #F0F0F0; }
+
+	.w-cards3-gray .cta i { color: #F0F0F0; }
+	.w-cards3-black .cta i { color: #333; }
+	.w-cards3-red .cta i { color: #CA0000; }
+	.w-cards3-blue .cta i { color: #4285F4; }
+	.w-cards3-purple .cta i { color: #73197B; }
+	.w-cards3-green .cta i { color: #68B25B; }
+	.w-cards3-orange .cta i { color: #FFAC37; }
+	.w-cards3-pink .cta i { color: #E7357F; }
+</style>
+
+<settings>
+
+	<div class="padding">
+		<ui-component name="choose" path="?.color" config="selector:div;limit:1" class="iconmenu">
+			<div data-id="blue">
+				<i class="ti ti-paint-brush-alt" style="color:#4285F4"></i>
+				<span>Blue</span>
+			</div>
+			<div data-id="red">
+				<i class="ti ti-paint-brush-alt" style="color:#CA0000"></i>
+				<span>Red</span>
+			</div>
+			<div data-id="purple">
+				<i class="ti ti-paint-brush-alt" style="color:#73197B"></i>
+				<span>Purple</span>
+			</div>
+			<div data-id="green">
+				<i class="ti ti-paint-brush-alt" style="color:#68B25B;"></i>
+				<span>Green</span>
+			</div>
+			<div data-id="orange">
+				<i class="ti ti-paint-brush-alt" style="color:#ffac37"></i>
+				<span>Orange</span>
+			</div>
+			<div data-id="black">
+				<i class="ti ti-paint-brush-alt" style="color:#333333"></i>
+				<span>Black</span>
+			</div>
+			<div data-id="pink">
+				<i class="ti ti-paint-brush-alt" style="color:#E7357F"></i>
+				<span>Pink</span>
+			</div>
+			<div data-id="grey">
+				<i class="ti ti-paint-brush-alt" style="color:#F0F0F0"></i>
+				<span>Grey</span>
+			</div>
+		</ui-component>
+	</div>
+
+	<script>
+		exports.save = function(config, el) {
+			el.rclass2('w-cards3-');
+			el.aclass('w-cards3-' + config.color);
+		};
+	</script>
+
+</settings>
+
+<body>
+	<div class="CMS_widgets">
+		<div class="row">
+			<div class="CMS_repeat col-4 col-xs-12 col-sm-6 col-lg-3">
+				<div class="item">
+					<div class="imgwrapper">
+						<img src="/download/yb3e001je41d.png" width="180" height="90" class="img CMS_edit" />
+					</div>
+					<a class="cta CMS_edit">Lorem ipsum <i class="ti ti-angle-right CMS_edit"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

@@ -1,0 +1,145 @@
+<script total>
+
+	// Meta
+	exports.id = 'timeline2';
+	exports.name = 'Timeline 2';
+	exports.author = 'Total.js';
+	exports.version = '1';
+	exports.group = 'Content';
+    exports.preview = 'https://cdn.totaljs.com/pages/timeline2/timeline2.jpeg';
+	exports.config = { color: 'gray' };
+
+</script>
+<style>
+	.w-timeline2 .timeline { position: relative; margin: 0 auto; max-width: 1200px; }
+	.w-timeline2 .timeline:after { content: ''; position: absolute; width: 4px; background-color: #606060; opacity: .3; top: 0; bottom: 0; left: 50%; margin-left: -2px; }
+	.w-timeline2 .item { padding: 10px 40px; position: relative; background-color: inherit; width: 50%; }
+	.w-timeline2 .item:after { content: ''; position: absolute; width: 20px; height: 20px; right: -10px; background-color: #fff; border: 6px solid #606060; top: 50%; transform: translate(0, -50%); border-radius: 50%; z-index: 1; }
+	.w-timeline2 .item:nth-child(odd) { left: 0; }
+	.w-timeline2 .item:nth-child(even) { left: 50%; }
+	.w-timeline2 .item:nth-child(odd):before { content: ''; height: 0; position: absolute; top: 50%; transform: translate(0, -50%); right: 30px; width: 0; z-index: 1; border: medium solid white; border-width: 10px 0 10px 10px; border-color: transparent transparent transparent #f0f0f0; }
+	.w-timeline2 .item:nth-child(even):before { content: " "; height: 0; position: absolute; top: 50%; transform: translate(0, -50%); width: 0; z-index: 1; left: 30px; border: medium solid white; border-width: 10px 10px 10px 0; border-color: transparent #f0f0f0 transparent transparent; }
+	.w-timeline2 .item:nth-child(even):after  { left: -10px; }
+	.w-timeline2 .content { padding: 20px 30px; background-color: #f0f0f0; position: relative; border-radius: 6px; }
+	.w-timeline2 .content .date { font-weight: bold; font-size: 18px; border-bottom: 1px solid #d0d0d0; margin-bottom: 10px; padding-bottom: 10px; }
+	.w-timeline2 .content .body { color: gray; }
+	.w-timeline2 .content .body ul { padding-left: 20px; margin-bottom: 0; }
+	.w-timeline2 .ui-dark .content { background-color: #303030; }
+
+	.w-timeline2-color-red .item:after { border-color: #ca0000 !important; }
+	.w-timeline2-color-gray .item:after { border-color: #606060 !important; }
+	.w-timeline2-color-purple .item:after { border-color: #73197B !important; }
+	.w-timeline2-color-orange .item:after { border-color: #ffac37 !important; }
+	.w-timeline2-color-green .item:after { border-color: #68B25B !important; }
+	.w-timeline2-color-black .item:after { border-color: #333333 !important; }
+	.w-timeline2-color-blue .item:after { border-color: #4285F4 !important; }
+	.w-timeline2-color-pink .item:after { border-color: #E7357F !important; }
+
+	.w-timeline2-color-red .timeline:after { background-color: #ca0000 !important; }
+	.w-timeline2-color-gray .timeline:after { background-color: #606060 !important; }
+	.w-timeline2-color-purple .timeline:after { background-color: #73197B !important; }
+	.w-timeline2-color-orange .timeline:after { background-color: #ffac37 !important; }
+	.w-timeline2-color-green .timeline:after { background-color: #68B25B !important; }
+	.w-timeline2-color-black .timeline:after { background-color: #333333 !important; }
+	.w-timeline2-color-blue .timeline:after { background-color: #4285F4 !important; }
+	.w-timeline2-color-pink .timeline:after { background-color: #E7357F !important; }
+
+	.w-timeline2-light .item .content { background-color: #fff !important; }
+	.w-timeline2-light .item:nth-child(odd):before { border-color: transparent transparent transparent #fff; }
+	.w-timeline2-light .item:nth-child(even):before { border-color: transparent #fff transparent transparent; }
+
+	@media(max-width:768px) {
+		.w-timeline2 timeline:after { left: 31px; }
+		.w-timeline2 item { width: 100%; padding-left: 70px; padding-right: 25px; }
+		.w-timeline2 item:nth-child(odd):after, .w-timeline2 item:nth-child(even):after { left: 21px; }
+		.w-timeline2 item:nth-child(odd):before { left: 60px; border-width: 10px 10px 10px 0; border-color: transparent #f0f0f0 transparent transparent }
+		.w-timeline2 item:nth-child(even):before { left: 60px; border-width: 10px 10px 10px 0; border-color: transparent #f0f0f0 transparent transparent }
+		.w-timeline2 item:nth-child(even) { left: 0%; }
+	}
+
+</style>
+
+<settings>
+	<div class="padding">
+		<ui-component name="choose" path="?.color" config="selector:div;limit:1" class="iconmenu">
+			<div data-id="blue">
+				<i class="ti ti-paint-brush-alt" style="color:#4285F4"></i>
+				<span>Blue</span>
+			</div>
+			<div data-id="red">
+				<i class="ti ti-paint-brush-alt" style="color:#CA0000"></i>
+				<span>Red</span>
+			</div>
+			<div data-id="purple">
+				<i class="ti ti-paint-brush-alt" style="color:#73197B"></i>
+				<span>Purple</span>
+			</div>
+			<div data-id="green">
+				<i class="ti ti-paint-brush-alt" style="color:#68B25B;"></i>
+				<span>Green</span>
+			</div>
+			<div data-id="orange">
+				<i class="ti ti-paint-brush-alt" style="color:#ffac37"></i>
+				<span>Orange</span>
+			</div>
+			<div data-id="black">
+				<i class="ti ti-paint-brush-alt" style="color:#333333"></i>
+				<span>Black</span>
+			</div>
+			<div data-id="pink">
+				<i class="ti ti-paint-brush-alt" style="color:#E7357F"></i>
+				<span>Pink</span>
+			</div>
+			<div data-id="gray" class="selected">
+				<i class="ti ti-paint-brush-alt" style="color:#606060"></i>
+				<span>Gray</span>
+			</div>
+		</ui-component>
+	</div>
+
+	<script>
+		exports.save = function(config, el) {
+			el.rclass2('w-timeline2-color-');
+			el.aclass('w-timeline2-color-' + config.color);
+		};
+	</script>
+</settings>
+
+<body>
+	<div class="CMS_widgets timeline">
+		<div class="CMS_remove CMS_repeat item">
+			<div class="content">
+				<div class="CMS_edit date">Sept 2021</div>
+				<div class="CMS_edit body">
+					<ul>
+						<li class="CMS_edit CMS_repeat">Lorem ipsum dolor sit Lorem ipsum dolor sit Lorem ipsum dolor sit Lorem ipsum dolor sit Lorem ipsum dolor sit Lorem ipsum dolor sit</li>
+						<li class="CMS_edit CMS_repeat CMS_remove">Lorem ipsum dolor sit Lorem ipsum dolor sit Lorem ipsum dolor sit Lorem ipsum dolor sit Lorem ipsum dolor sit Lorem ipsum dolor sit</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="CMS_remove CMS_repeat item">
+			<div class="content">
+				<div class="CMS_edit date">Dec 2021</div>
+				<div class="CMS_edit body">
+					<ul>
+						<li class="CMS_edit CMS_repeat">Lorem ipsum dolor sit</li>
+						<li class="CMS_edit CMS_repeat CMS_remove">Lorem ipsum dolor sit Lorem ipsum dolor sit Lorem ipsum dolor sit Lorem ipsum dolor sit Lorem ipsum dolor sit</li>
+						<li class="CMS_edit CMS_repeat CMS_remove">Lorem ipsum dolor sit</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="CMS_remove CMS_repeat item">
+			<div class="content">
+				<div class="CMS_edit date">Jan 2022</div>
+				<div class="CMS_edit body">
+					<ul>
+						<li class="CMS_edit CMS_repeat">Lorem ipsum dolor sit</li>
+						<li class="CMS_edit CMS_repeat CMS_remove">Lorem ipsum dolor sit</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

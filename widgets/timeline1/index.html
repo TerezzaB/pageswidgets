@@ -1,0 +1,69 @@
+<script total>
+
+	// Meta
+	exports.id = 'timeline1';
+	exports.name = 'Timeline';
+	exports.author = 'Total.js';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://cdn.totaljs.com/pages/timeline1/timeline.jpeg';
+</script>
+
+<style>
+	.w-timeline1 .date { float: left; width: 200px; border-bottom: 1px solid #E0E0E0; padding: 5px 0; font-weight: bold; }
+	.w-timeline1 .body { margin: 0 0 0 200px; padding: 10px 0; background-color: #F0F0F0; border-top: 1px solid #E9E9E9; }
+	.w-timeline1 .body ul { margin: 0; }
+	.w-timeline1 .item:first-child .w-timeline1 .body { border-top: 0; border-radius: 3px 3px 0 0; }
+	.w-timeline1 .item:last-child .w-timeline1 .body { border-radius: 0 0 3px 3px; }
+	.w-timeline1 .ui-dark .body { background-color: #303030; }
+
+	@media(max-width: 998px) {
+		.w-timeline1 .date { width: 150px; }
+		.w-timeline1 .body { margin: 0 0 0 150px; }
+	}
+
+	@media(max-width: 768px) {
+		.w-timeline1 .date { float: none; width: auto; }
+		.w-timeline1 .body { margin-left: 0; border-radius: 0 0 3px 3px; }
+		.w-timeline1 .item:first-child .w-timeline1 .body { border-radius: 0 0 3px 3px; }
+		.w-timeline1 .item { margin-bottom: 15px; }
+	}
+</style>
+
+<settings>
+</settings>
+
+<body>
+	<div class="CMS_widgets">
+		<div class="item CMS_repeat">
+			<div class="date CMS_edit">2012</div>
+			<div class="body">
+				<ul>
+					<li class="CMS_edit CMS_repeat">Lorem ipsum dolor sit</li>
+					<li class="CMS_edit CMS_repeat CMS_remove">Lorem ipsum dolor sit</li>
+					<li class="CMS_edit CMS_repeat CMS_remove">Lorem ipsum dolor sit</li>
+				</ul>
+			</div>
+		</div>
+		<div class="item CMS_repeat CMS_remove">
+			<div class="date CMS_edit">2013</div>
+			<div class="body">
+				<ul>
+					<li class="CMS_edit CMS_repeat">Lorem ipsum dolor sit</li>
+					<li class="CMS_edit CMS_repeat CMS_remove">Lorem ipsum dolor sit</li>
+					<li class="CMS_edit CMS_repeat CMS_remove">Lorem ipsum dolor sit</li>
+				</ul>
+			</div>
+		</div>
+		<div class="item CMS_repeat CMS_remove">
+			<div class="date CMS_edit">2014</div>
+			<div class="body">
+				<ul>
+					<li class="CMS_edit CMS_repeat">Lorem ipsum dolor sit</li>
+					<li class="CMS_edit CMS_repeat CMS_remove">Lorem ipsum dolor sit</li>
+					<li class="CMS_edit CMS_repeat CMS_remove">Lorem ipsum dolor sit</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>

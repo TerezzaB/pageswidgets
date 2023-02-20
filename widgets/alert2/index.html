@@ -1,78 +1,84 @@
 <script total>
+
+	// Meta
 	exports.id = 'alert2';
 	exports.name = 'Alert 2';
-	exports.author = 'Dodo Marton';
+	exports.author = 'Total.js';
 	exports.version = '1';
 	exports.group = 'Content';
 	exports.preview = 'https://cdn.totaljs.com/pages/alert2/preview.jpg';
-    exports.config = { color: 'yellow', align: 'left', fullwidth: false };
+	exports.config = { color: 'blue', align: 'left' };
 </script>
 
 <style>
-	.w-alert2 blockquote { padding: 20px; margin: 0; border-radius: 4px; font-size: 16px; line-height: 22px; color: gray; }
+	.w-alert2 blockquote { padding: 20px; margin: 0; border-radius: 4px; font-size: 16px; line-height: 22px; color: gray; background-color: #DDEDF6; border: 2px solid #C5E7F0; }
 	.w-alert2 blockquote .caption { font-size: 18px; font-weight: bold; margin-bottom: 10px; color: #333; }
-	.w-alert2-yellow { background-color: #F9F1CA; border: 2px solid #F5E79E; }
-	.w-alert2-red { background-color: #EFDFDF; border: 2px solid #E6CDD1; }
-	.w-alert2-green { background-color: #E2EFDA; border: 2px solid #DAE8C9; }
-	.w-alert2-blue { background-color: #DDEDF6; border: 2px solid #C5E7F0; }
-	.w-alert2 blockquote.w-alert2-align-left { text-align: left; }
-	.w-alert2 blockquote.w-alert2-align-right { text-align: right; }
-	.w-alert2 blockquote.w-alert2-align-center { text-align: center; }
+
+	.w-alert2-color-yellow blockquote  { background-color: #F9F1CA; border: 2px solid #F5E79E; }
+	.w-alert2-color-pink blockquote { background-color: #EFDFDF; border: 2px solid #E6CDD1; }
+	.w-alert2-color-green blockquote { background-color: #E2EFDA; border: 2px solid #DAE8C9; }
+	.w-alert2-color-blue blockquote { background-color: #DDEDF6; border: 2px solid #C5E7F0; }
+
+	.w-alert2-align-left blockquote { text-align: left; }
+	.w-alert2-align-right blockquote { text-align: right; }
+	.w-alert2-align-center blockquote { text-align: center; }
 
 	@media(max-width: 980px) {
 		.w-alert2 blockquote { font-size: 14px; line-height: 18px; }
-		.w-alert2 blockquote .caption { font-size: 16px; }
+		.w-alert2 blockquote .item { font-size: 16px; }
 	}
 </style>
 
 <settings>
-    <div class="padding">
-        <div data---="configuration__?" class="invisible">
-            <script type="text/plain">
-                [
-                    {
-                        name: 'color',
-                        text: 'Color',
-                        type: 'dropdown',
-                        items: [{ name: 'Yellow', id: 'yellow' }, { name: 'Red', id: 'red' }, { name: 'Blue', id: 'blue' }, { name: 'Green', id: 'green' }]
-                    },
-                    {
-                        name: 'align',
-                        text: 'Align',
-                        type: 'dropdown',
-                        items: [{ name: 'Left', id: 'left' }, { name: 'Center', id: 'center' }, { name: 'Right', id: 'right' }]
-                    },
-                    {
-                        name: 'fullwidth',
-                        text: 'Full width',
-                        type: 'boolean'
-                    },
-                ]
-            </script>
+	<div class="padding">
+		<ui-component name="choose" path="?.color" config="selector:div;limit:1" class="iconmenu" style="margin:15px 0">
+			<div data-id="blue">
+				<i class="ti ti-paint-brush-alt" style="color:#c1d3fe"></i>
+				<span>Blue</span>
+			</div>
+			<div data-id="pink">
+				<i class="ti ti-paint-brush-alt" style="color:#eac4d5"></i>
+				<span>Pink</span>
+			</div>
+			<div data-id="green">
+				<i class="ti ti-paint-brush-alt" style="color:#adf7b6"></i>
+				<span>Green</span>
+			</div>
+			<div data-id="yellow">
+				<i class="ti ti-paint-brush-alt" style="color:#ffd670"></i>
+				<span>Yellow</span>
+			</div>
+		</ui-component>
+		<ui-component name="choose" path="?.align" config="selector:div;limit:1" class="iconmenu" style="margin:15px 0">
+			<div data-id="left">
+				<i class="ti ti-align-left"></i>
+				<span>Left</span>
+			</div>
+			<div data-id="center">
+				<i class="ti ti-align-center"></i>
+				<span>Center</span>
+			</div>
+			<div data-id="right">
+				<i class="ti ti-align-right"></i>
+				<span>Right</span>
+			</div>
+		</ui-component>
+	</div>
 
-            <script>
-                exports.save = function(config, el) {
-                    el.find('blockquote').rclass2('w-alert2-').aclass('w-alert2-' + config.color);
+	<script>
+		exports.save = function(config, el) {
+			el.rclass2('w-alert2-align-');
+			el.aclass('w-alert2-align-' + config.align);
+			el.rclass2('w-alert2-color-');
+			el.aclass('w-alert2-color-' + config.color);
+		};
+	</script>
 
-                    if (config.fullwidth)
-                        el.find('.col-lg-8').tclass('col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12 col-lg-12');
-                    else
-                        el.find('.col-lg-12').tclass('col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12 col-lg-12');
-                
-                    el.find('blockquote').rclass2('w-alert2-align-').aclass('w-alert2-align-' + config.align);
-                };
-            </script>
-        </div>
-    </div>
 </settings>
 
 <body>
-    <div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
-			<blockquote class="w-alert2-yellow w-alert2-align-left">
-				<div class="caption CMS_edit">Lorem ipsum dolor sit amet</div>
-				<span class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut quidem obcaecati magnam nisi distinctio. Delectus porro eum velit molestiae perferendis?</span>
-			</blockquote>
-		</div>
-	</div>
+	<blockquote class="item">
+		<div class="caption CMS_edit">Lorem ipsum dolor sit amet</div>
+		<span class="CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut quidem obcaecati magnam nisi distinctio. Delectus porro eum velit molestiae perferendis?</span>
+	</blockquote>
 </body>

@@ -1,0 +1,96 @@
+<script total>
+
+	// Meta
+	exports.id = 'footerlogo';
+	exports.name = 'Footer Logo';
+	exports.author = 'Total.js';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://cdn.totaljs.com/pages/footerlogo/footerlogo.png';
+	exports.config = { color: 'black' };
+</script>
+
+<style>
+	.w-footerlogo .socheader { text-align: center; font-weight: bold; font-size: 24px; line-height: 28px; margin-bottom: 35px; }
+	.w-footerlogo .logo { display: block; max-width: 180px; margin: 50px auto; }
+	.w-footerlogo img { vertical-align: middle; }
+	.w-footerlogo .socsubheader { text-align: center; font-size: 16px; line-height: 24px; margin-bottom: 35px; }
+	.w-footerlogo .social { max-width: 420px; margin: 0 auto; display: flex; justify-content: center; gap: 20px; font-size: 20px; }
+	.w-footerlogo a { color: #333; cursor: pointer; text-decoration: none; }
+	.w-footerlogo .ui-dark a { color: #F0F0F0; cursor: pointer; text-decoration: none; }
+
+	.w-footerlogo-black a, .w-footerlogo-black .socsubheader, .w-footerlogo-black .socheader { color: #333; }
+	.w-footerlogo-blue a, .w-footerlogo-blue .socsubheader, .w-footerlogo-blue .socheader { color: #4285F4; }
+	.w-footerlogo-red a, .w-footerlogo-red .socsubheader, .w-footerlogo-red .socheader { color: #CA0000; }
+	.w-footerlogo-purple a, .w-footerlogo-purple .socsubheader, .w-footerlogo-purple .socheader { color: #73197B; }
+	.w-footerlogo-green a, .w-footerlogo-green .socsubheader, .w-footerlogo-green .socheader { color: #68B25B; }
+	.w-footerlogo-orange a, .w-footerlogo-orange .socsubheader, .w-footerlogo-orange .socheader { color: #ffac37; }
+	.w-footerlogo-pink a, .w-footerlogo-pink .socsubheader, .w-footerlogo-pink .socheader { color: #E7357F; }
+	.w-footerlogo-grey a, .w-footerlogo-grey .socsubheader, .w-footerlogo-grey .socheader { color: #F0F0F0; }
+</style>
+
+
+<settings>
+
+	<div class="padding">
+		<ui-component name="choose" path="?.color" config="selector:div;limit:1" class="iconmenu">
+			<div data-id="blue">
+				<i class="ti ti-paint-brush-alt" style="color:#4285F4"></i>
+				<span>Blue</span>
+			</div>
+			<div data-id="red">
+				<i class="ti ti-paint-brush-alt" style="color:#CA0000"></i>
+				<span>Red</span>
+			</div>
+			<div data-id="purple">
+				<i class="ti ti-paint-brush-alt" style="color:#73197B"></i>
+				<span>Purple</span>
+			</div>
+			<div data-id="green">
+				<i class="ti ti-paint-brush-alt" style="color:#68B25B;"></i>
+				<span>Green</span>
+			</div>
+			<div data-id="orange">
+				<i class="ti ti-paint-brush-alt" style="color:#ffac37"></i>
+				<span>Orange</span>
+			</div>
+			<div data-id="black">
+				<i class="ti ti-paint-brush-alt" style="color:#333333"></i>
+				<span>Black</span>
+			</div>
+			<div data-id="pink">
+				<i class="ti ti-paint-brush-alt" style="color:#E7357F"></i>
+				<span>Pink</span>
+			</div>
+			<div data-id="grey">
+				<i class="ti ti-paint-brush-alt" style="color:#F0F0F0"></i>
+				<span>Grey</span>
+			</div>
+		</ui-component>
+	</div>
+
+	<script>
+		exports.save = function(config, el) {
+			el.rclass2('w-footerlogo-');
+			el.aclass('w-footerlogo-' + config.color);
+		};
+	</script>
+
+</settings>
+
+<body>
+	<div class="CMS_widgets">
+		<div class="item CMS_repeat">
+			<div class="CMS_remove"><img src="/download/yb3e001je41d.png" alt="" width="180" height="130" class="img CMS_edit logo" /></div>
+			<div class="socheader CMS_edit CMS_remove">Lorem ipsum dolor sit</div>
+			<div class="socsubheader CMS_edit CMS_remove">Consectetur adipiscing elit, sed do eiusmod tempor</div>
+			<div class="social CMS_edit CMS_remove">
+				<a href="https://www.facebook.com" target="_blank" class="CMS_edit CMS_repeat CMS_remove"><i class="fab fa-facebook CMS_edit"></i></a>
+				<a href="https://www.linkedin.com" target="_blank" class="CMS_edit CMS_repeat CMS_remove"><i class="fab fa-instagram CMS_edit"></i></a>
+				<a href="https://www.instagram.com" target="_blank" class="CMS_edit CMS_repeat CMS_remove"><i class="fab fa-linkedin CMS_edit"></i></a>
+				<a href="https://www.twitter.com" target="_blank" class="CMS_edit CMS_repeat CMS_remove"><i class="fab fa-twitter CMS_edit"></i></a>
+				<a href="https://www.instagram.com" target="_blank" class="CMS_edit CMS_repeat CMS_remove"><i class="fab fa-youtube CMS_edit"></i></a>
+			</div>
+		</div>
+	</div>
+</body>

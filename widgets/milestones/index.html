@@ -1,0 +1,162 @@
+<script total>
+
+	// Meta
+	exports.id = 'milestoneswidget';
+	exports.name = 'Milestones';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://cdn.totaljs.com/pages/milestoneswidget/milestones.jpeg';
+	exports.config = {};
+
+
+</script>
+
+<style>
+	.w-milestoneswidget .item { position: relative; background-color: #fff; box-shadow: 0 2px 15px 2px rgb(0 0 0 / 10%); padding: 30px 30px 30px 75px; border-radius: 6px; margin-bottom: 60px; }
+	.w-milestoneswidget .item .heading { position: relative; display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+	.w-milestoneswidget .item .heading h2 { margin: 0; font-weight: normal; color: #48478b; }
+	.w-milestoneswidget .item .heading .date { font-weight: bold; font-size: 16px; color: #98a0ac; }
+	.w-milestoneswidget .item .heading .icon { position: absolute; top: -40px; left: -55px; display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; background-color: #8A9BE6; border-radius: 50%; }
+	.w-milestoneswidget .item .heading .icon i { font-size: 18px; color: #fff; }
+	.w-milestoneswidget .item .divider { height: 2px; width: 100%; background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(223,227,243,1) 60%, rgba(198,205,234,1) 100%); }
+	.w-milestoneswidget .item .line { width: 4px; height: 50px; background-color: #8A9BE6; position: absolute; left: 35px; bottom: -50px; }
+	.w-milestoneswidget .item:last-child .line { display: none; }
+	.w-milestoneswidget p { margin-top: 20px; color: #7d8a99; }
+
+	.w-milestoneswidget-gray .icon { background-color: #606060 !important; }
+	.w-milestoneswidget-red .icon { background-color: #ca0000 !important; }
+	.w-milestoneswidget-purple .icon { background-color: #73197B !important; }
+	.w-milestoneswidget-orange .icon { background-color: #ffac37 !important; }
+	.w-milestoneswidget-green .icon { background-color: #68B25B !important; }
+	.w-milestoneswidget-black .icon { background-color: #333333 !important; }
+	.w-milestoneswidget-blue .icon { background-color: #4285F4 !important; }
+	.w-milestoneswidget-pink .icon { background-color: #E7357F !important; }
+
+	.w-milestoneswidget-gray .line { background-color: #606060 !important; }
+	.w-milestoneswidget-red .line { background-color: #ca0000 !important; }
+	.w-milestoneswidget-purple .line { background-color: #73197B !important; }
+	.w-milestoneswidget-orange .line { background-color: #ffac37 !important; }
+	.w-milestoneswidget-green .line { background-color: #68B25B !important; }
+	.w-milestoneswidget-black .line { background-color: #333333 !important; }
+	.w-milestoneswidget-blue .line { background-color: #4285F4 !important; }
+	.w-milestoneswidget-pink .line { background-color: #E7357F !important; }
+
+	.w-milestoneswidget-gray h2 { color: #606060 !important; }
+	.w-milestoneswidget-red h2 { color: #ca0000 !important; }
+	.w-milestoneswidget-purple h2 { color: #73197B !important; }
+	.w-milestoneswidget-orange h2 { color: #ffac37 !important; }
+	.w-milestoneswidget-green h2 { color: #68B25B !important; }
+	.w-milestoneswidget-black h2 { color: #333333 !important; }
+	.w-milestoneswidget-blue h2 { color: #4285F4 !important; }
+	.w-milestoneswidget-pink h2 { color: #E7357F !important; }
+
+	.w-milestoneswidget-gray .divider { background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(80,80,80,1) 60%, rgba(48,48,48,1) 100%) !important; }
+	.w-milestoneswidget-red .divider { background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(236,0,0,1) 60%, rgba(236,0,0,1) 100%) !important; }
+	.w-milestoneswidget-purple .divider { background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(223,227,243,1) 60%, rgba(198,205,234,1) 100%) !important; }
+	.w-milestoneswidget-orange .divider { background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,186,89,1) 60%, rgba(254,157,21,1) 100%) !important; }
+	.w-milestoneswidget-green .divider { background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(76,190,73,1) 60%, rgba(55,143,51,1) 100%) !important; }
+	.w-milestoneswidget-black .divider { background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(96,96,96,1) 60%, rgba(51,51,51,1) 100%) !important; }
+	.w-milestoneswidget-blue .divider { background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(57,91,224,1) 60%, rgba(29,60,185,1) 100%) !important; }
+	.w-milestoneswidget-pink .divider { background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,182,193,1) 60%, rgba(231,53,127,1) 100%) !important; }
+
+	@media(max-width: 768px) {
+		.w-milestoneswidget .item { padding: 60px 30px 30px 30px; }
+		.w-milestoneswidget .item .heading .icon { top: -70px; left: -10px; }
+		.w-milestoneswidget .item .heading { flex-direction: column; align-items: flex-start; }
+		.w-milestoneswidget .item .heading h2 { font-size: 20px; margin-bottom: 6px; } 
+		.w-milestoneswidget .item .heading .date { font-size: 14px; }
+	}
+</style>
+
+<settings>
+	<div class="padding">
+		<ui-component name="choose" path="?.color" config="selector:div;limit:1" class="iconmenu">
+			<div data-id="blue">
+				<i class="ti ti-paint-brush-alt" style="color:#4285F4"></i>
+				<span>Blue</span>
+			</div>
+			<div data-id="red">
+				<i class="ti ti-paint-brush-alt" style="color:#CA0000"></i>
+				<span>Red</span>
+			</div>
+			<div data-id="purple">
+				<i class="ti ti-paint-brush-alt" style="color:#73197B"></i>
+				<span>Purple</span>
+			</div>
+			<div data-id="green">
+				<i class="ti ti-paint-brush-alt" style="color:#68B25B;"></i>
+				<span>Green</span>
+			</div>
+			<div data-id="orange">
+				<i class="ti ti-paint-brush-alt" style="color:#ffac37"></i>
+				<span>Orange</span>
+			</div>
+			<div data-id="black">
+				<i class="ti ti-paint-brush-alt" style="color:#333333"></i>
+				<span>Black</span>
+			</div>
+			<div data-id="pink">
+				<i class="ti ti-paint-brush-alt" style="color:#E7357F"></i>
+				<span>Pink</span>
+			</div>
+		</ui-component>
+	</div>
+
+	<script>
+		exports.save = function(config, el) {
+			el.rclass2('w-milestoneswidget-');
+			el.aclass('w-milestoneswidget-' + config.color);
+		};
+	</script>
+</settings>
+
+<body>
+
+	<div class="milestoneswidget milestoneswidget-gray">
+		<div class="CMS_remove CMS_repeat item">
+			<div class="heading">
+				<h2 class="CMS_edit">Lorem ipsum dolor sit amet</h2>
+				<div class="CMS_edit date">september 2021</div>
+				<div class="icon"><i class="CMS_edit ti ti-pin"></i></div>
+			</div>
+
+			<div class="divider"></div>
+
+			<p class="CMS_edit">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+			</p>
+			<div class="line"></div>
+		</div>
+
+		<div class="CMS_remove CMS_repeat item">
+			<div class="heading">
+				<h2 class="CMS_edit">Lorem ipsum dolor sit amet</h2>
+				<div class="CMS_edit date">october 2021</div>
+				<div class="icon"><i class="CMS_edit ti ti-pin"></i></div>
+			</div>
+
+			<div class="divider"></div>
+
+			<p class="CMS_edit">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+			</p>
+			<div class="line"></div>
+		</div>
+
+		<div class="CMS_remove CMS_repeat item">
+			<div class="heading">
+				<h2 class="CMS_edit">Lorem ipsum dolor sit amet</h2>
+				<div class="CMS_edit date">december 2021</div>
+				<div class="icon"><i class="CMS_edit ti ti-pin"></i></div>
+			</div>
+
+			<div class="divider"></div>
+
+			<p class="CMS_edit">
+				Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+			<div class="line"></div>
+		</div>
+	</div>
+</body>

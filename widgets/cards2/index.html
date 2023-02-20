@@ -1,0 +1,89 @@
+<script total>
+
+	exports.id = 'cards2';
+	exports.name = 'Cards 2';
+	exports.author = 'Total.js';
+	exports.version = '1';
+	exports.group = 'List';
+	exports.preview = 'https://cdn.totaljs.com/pages/cards2/preview.jpeg';
+	exports.config = { color: 'blue' };
+
+</script>
+
+<style>
+	.w-cards2 .item { margin-bottom: var(--gap); background-color: #FFF; border-radius: var(--radius); box-shadow: rgb(136 152 170 / 15%)  0 0 32px 0; }
+	.w-cards2 .title { font-weight: bold; font-size: 16px; }
+	.w-cards2 .ui-dark .item { background-color: #282828; color: #FFF; box-shadow: rgba(255,255,255,0.12) 0 5px 25px; }
+
+	.w-cards2 .button { color: #FFF; border-radius: var(--radius); min-width: 80px; cursor: pointer; border: 0; padding: 8px 15px; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+	.w-cards2 .button:hover { opacity: 0.9; }
+	.w-cards2 .button:disabled { background-color: #F5F5F5; border-color: #E0E0E0; color: #C0C0C0; box-shadow: none; cursor: not-allowed; }
+	.w-cards2 .button:active { box-shadow: none; }
+	.w-cards2 .button > i { margin-right: 5px; }
+
+	.w-cards2 .fg-blue button { background-color: #4285F4; }
+	.w-cards2 .fg-red button { background-color: #CA0000; }
+	.w-cards2 .fg-purple button { background-color: #73197B; }
+	.w-cards2 .fg-green button { background-color: #68B25B; }
+	.w-cards2 .fg-orange button { background-color: #ffac37; }
+	.w-cards2 .fg-black button { background-color: #333333; }
+	.w-cards2 .fg-pink button { background-color: #E7357F; }
+
+</style>
+
+<settings>
+	<div class="padding">
+		<ui-component name="choose" path="?.color" config="selector:div;limit:1" class="iconmenu">
+			<div data-id="blue">
+				<i class="ti ti-paint-brush-alt" style="color:#4285F4"></i>
+				<span>Blue</span>
+			</div>
+			<div data-id="red">
+				<i class="ti ti-paint-brush-alt" style="color:#CA0000"></i>
+				<span>Red</span>
+			</div>
+			<div data-id="purple">
+				<i class="ti ti-paint-brush-alt" style="color:#73197B"></i>
+				<span>Purple</span>
+			</div>
+			<div data-id="green">
+				<i class="ti ti-paint-brush-alt" style="color:#68B25B;"></i>
+				<span>Green</span>
+			</div>
+			<div data-id="orange">
+				<i class="ti ti-paint-brush-alt" style="color:#ffac37"></i>
+				<span>Orange</span>
+			</div>
+			<div data-id="black">
+				<i class="ti ti-paint-brush-alt" style="color:#333333"></i>
+				<span>Black</span>
+			</div>
+			<div data-id="pink">
+				<i class="ti ti-paint-brush-alt" style="color:#E7357F"></i>
+				<span>Pink</span>
+			</div>
+		</ui-component>
+	</div>
+
+	<script>
+		exports.save = function(config, el) {
+			el.find('> .CMS_widgets').rclass2('fg-').aclass('fg-' + config.color);
+		};
+	</script>
+</settings>
+
+<body>
+	<div class="CMS_widgets fg-blue">
+		<div class="row">
+			<div class="CMS_repeat col-4 col-xs-12 col-sm-6 col-lg-3">
+				<div class="item">
+					<div class="padding">
+						<div class="title m CMS_edit">Card title</div>
+						<div class="m CMS_edit">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis non dolore est fuga nobis ipsum illum eligendi nemo iure repellat, soluta, optio minus ut reiciendis voluptates enim impedit veritatis officiis.</div>
+						<button class="button"><i class="ti ti-home CMS_edit"></i><span class="CMS_edit CMS_unwrap">Go somewhere</span></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

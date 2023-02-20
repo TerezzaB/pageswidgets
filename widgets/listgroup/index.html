@@ -1,0 +1,130 @@
+<script total>
+
+	// Meta
+	exports.id = 'listgroup';
+	exports.name = 'List Group';
+	exports.author = 'Total.js';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://cdn.totaljs.com/pages/listgroup/listgroup.jpeg';
+	exports.config = { bordercolor: 'gray', textcolor: 'black' };
+</script>
+
+<style>
+	.w-listgroup ul { margin: 0; padding: 0; border: 1px solid #E0E0E0; border-radius: 4px; }
+	.w-listgroup li { list-style-type: none; padding: 10px 15px; margin: 0; border-top: 1px solid #E0E0E0; }
+	.w-listgroup li:first-child { border-top: 0; }
+
+	.w-listgroup-border-red ul, .w-listgroup-border-red li { border-color: #CA0000; }
+	.w-listgroup-border-gray ul, .w-listgroup-border-gray li { border-color: #E0E0E0; }
+	.w-listgroup-border-black ul, .w-listgroup-border-black li { border-color: #333; }
+	.w-listgroup-border-blue ul, .w-listgroup-border-blue li { border-color: #4285F4; }
+	.w-listgroup-border-purple ul, .w-listgroup-border-purple li { border-color: #73197B; }
+	.w-listgroup-border-green ul, .w-listgroup-border-green li { border-color: #68B25B; }
+	.w-listgroup-border-orange ul, .w-listgroup-border-orange li { border-color: #ffac37; }
+	.w-listgroup-border-pink ul, .w-listgroup-border-pink li { border-color: #E7357F; }
+	
+	.w-listgroup-text-red li { color: #CA0000; }
+	.w-listgroup-text-gray li { color: #E0E0E0; }
+	.w-listgroup-text-black li { color: #333; }
+	.w-listgroup-text-blue li { color: #4285F4; }
+	.w-listgroup-text-purple li { color: #73197B; }
+	.w-listgroup-text-green li { color: #68B25B; }
+	.w-listgroup-text-orange li { color: #ffac37; }
+	.w-listgroup-text-pink li { color: #E7357F; }
+</style>
+
+
+<settings>
+	<div class="padding">
+		<div style="margin:15px 0">Border color</div>
+		<ui-component name="choose" path="?.bordercolor" config="selector:div;limit:1" class="iconmenu">
+			<div data-id="blue">
+				<i class="ti ti-paint-brush-alt" style="color:#4285F4"></i>
+				<span>Blue</span>
+			</div>
+			<div data-id="red">
+				<i class="ti ti-paint-brush-alt" style="color:#CA0000"></i>
+				<span>Red</span>
+			</div>
+			<div data-id="purple">
+				<i class="ti ti-paint-brush-alt" style="color:#73197B"></i>
+				<span>Purple</span>
+			</div>
+			<div data-id="green">
+				<i class="ti ti-paint-brush-alt" style="color:#68B25B;"></i>
+				<span>Green</span>
+			</div>
+			<div data-id="orange">
+				<i class="ti ti-paint-brush-alt" style="color:#ffac37"></i>
+				<span>Orange</span>
+			</div>
+			<div data-id="black">
+				<i class="ti ti-paint-brush-alt" style="color:#333333"></i>
+				<span>Black</span>
+			</div>
+			<div data-id="pink">
+				<i class="ti ti-paint-brush-alt" style="color:#E7357F"></i>
+				<span>Pink</span>
+			</div>
+			<div data-id="gray">
+				<i class="ti ti-paint-brush-alt" style="color:#D0D0D0"></i>
+				<span>Gray</span>
+			</div>
+		</ui-component>
+
+
+
+		<div style="margin:15px 0">Text color</div>
+		<ui-component name="choose" path="?.textcolor" config="selector:div;limit:1" class="iconmenu">
+			<div data-id="blue">
+				<i class="ti ti-paint-brush-alt" style="color:#4285F4"></i>
+				<span>Blue</span>
+			</div>
+			<div data-id="red">
+				<i class="ti ti-paint-brush-alt" style="color:#CA0000"></i>
+				<span>Red</span>
+			</div>
+			<div data-id="purple">
+				<i class="ti ti-paint-brush-alt" style="color:#73197B"></i>
+				<span>Purple</span>
+			</div>
+			<div data-id="green">
+				<i class="ti ti-paint-brush-alt" style="color:#68B25B;"></i>
+				<span>Green</span>
+			</div>
+			<div data-id="orange">
+				<i class="ti ti-paint-brush-alt" style="color:#ffac37"></i>
+				<span>Orange</span>
+			</div>
+			<div data-id="black">
+				<i class="ti ti-paint-brush-alt" style="color:#333333"></i>
+				<span>Black</span>
+			</div>
+			<div data-id="pink">
+				<i class="ti ti-paint-brush-alt" style="color:#E7357F"></i>
+				<span>Pink</span>
+			</div>
+			<div data-id="gray">
+				<i class="ti ti-paint-brush-alt" style="color:#D0D0D0"></i>
+				<span>Gray</span>
+			</div>
+		</ui-component>
+	</div>
+
+	<script>
+		exports.save = function(config, el) {
+			el.rclass2('w-listgroup-border-');
+			el.aclass('w-listgroup-border-' + config.bordercolor);
+			el.rclass2('w-listgroup-text-');
+			el.aclass('w-listgroup-text-' + config.textcolor);
+		};
+	</script>
+</settings>
+<body>
+	<ul>
+		<li class="CMS_repeat CMS_remove CMS_edit">Lorem ipsum dolor sit amet</li>
+		<li class="CMS_repeat CMS_remove CMS_edit">Lorem ipsum dolor sit amet</li>
+		<li class="CMS_repeat CMS_remove CMS_edit">Lorem ipsum dolor sit amet</li>
+	</ul>
+</body>

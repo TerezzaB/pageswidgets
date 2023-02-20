@@ -1,0 +1,89 @@
+<script total>
+	// Meta
+	exports.id = 'list';
+	exports.name = 'List';
+	exports.author = 'Dodo Marton';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://cdn.totaljs.com/pages/list/list.jpeg';
+	exports.config = { color: 'green' };
+</script>
+
+<style>
+	.w-list ul { margin: 0; padding: 0; list-style-type: none; }
+	.w-list li { display: block; padding: 6px 0; border-top: 1px solid #E0E0E0; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+	.w-list li:first-child { border-top: 0; padding-top: 0; }
+	.w-list i { margin-right: 8px; color: #68B25B; }
+	.w-list { font-size: 16px; }
+	.w-list li { padding: 8px 0; }
+
+	@media(max-width: 767px) {
+		.w-list li { overflow-x: auto; text-overflow: clip; overflow-scrolling: touch; }
+		.w-list .col-sm-6:last-child ul li:first-child { border-top: 1px solid #E0E0E0; padding-top: 6px; }
+	}
+
+	.w-list-red i { color: #CA0000; }
+	.w-list-blue i { color: #4285F4; }
+	.w-list-purple i { color: #73197B; }
+	.w-list-green i { color: #68B25B; }
+	.w-list-orange i { color: #ffac37; }
+	.w-list-pink i { color: #E7357F; }
+
+</style>
+
+<settings>
+	<div class="padding">
+		<ui-component name="choose" path="?.color" config="selector:div;limit:1" class="iconmenu">
+			<div data-id="blue">
+				<i class="ti ti-paint-brush-alt" style="color:#4285F4"></i>
+				<span>Blue</span>
+			</div>
+			<div data-id="red">
+				<i class="ti ti-paint-brush-alt" style="color:#CA0000"></i>
+				<span>Red</span>
+			</div>
+			<div data-id="purple">
+				<i class="ti ti-paint-brush-alt" style="color:#73197B"></i>
+				<span>Purple</span>
+			</div>
+			<div data-id="green">
+				<i class="ti ti-paint-brush-alt" style="color:#68B25B;"></i>
+				<span>Green</span>
+			</div>
+			<div data-id="orange">
+				<i class="ti ti-paint-brush-alt" style="color:#ffac37"></i>
+				<span>Orange</span>
+			</div>
+			<div data-id="black">
+				<i class="ti ti-paint-brush-alt" style="color:#333333"></i>
+				<span>Black</span>
+			</div>
+			<div data-id="pink">
+				<i class="ti ti-paint-brush-alt" style="color:#E7357F"></i>
+				<span>Pink</span>
+			</div>
+		</ui-component>
+	</div>
+
+	<script>
+		exports.save = function(config, el) {
+			el.rclass2('w-list-');
+			el.aclass('w-list-' + config.color);
+		};
+	</script>
+</settings>
+
+<body>
+	<div class="CMS_widgets CMS_repeat padding">
+		<div class="row">
+			<ul>
+				<li class="CMS_repeat CMS_remove"><i class="ti ti-check-circle CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
+				<li class="CMS_repeat CMS_remove"><i class="ti ti-check-circle CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
+				<li class="CMS_repeat CMS_remove"><i class="ti ti-check-circle CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
+				<li class="CMS_repeat CMS_remove"><i class="ti ti-check-circle CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
+				<li class="CMS_repeat CMS_remove"><i class="ti ti-check-circle CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
+				<li class="CMS_repeat CMS_remove"><i class="ti ti-check-circle CMS_edit"></i><span class="CMS_edit CMS_unwrap">Lorem Ipsum sodem</span></li>
+			</ul>
+		</div>
+	</div>
+</body>

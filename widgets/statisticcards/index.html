@@ -1,0 +1,98 @@
+<script total>
+
+	// Meta
+	exports.id = 'statisticcards';
+	exports.name = 'Statistic cards';
+	exports.author = 'Terezka';
+	exports.version = '1';
+	exports.group = 'List';
+	exports.preview = 'https://cdn.totaljs.com/pages/statisticcards/statistics.jpeg';
+	exports.config = { color: 'gray' };
+
+</script>
+
+<style>
+	.w-statisticcards .card { background-color: #FFF; box-shadow: rgb(136 152 170 / 15%)  0 0 32px 0; border-radius: var(--radius); padding: var(--gap); }
+	.w-statisticcards .card .meta { margin-right: 50px; }
+	.w-statisticcards .card .icon { float: right; font-size: 20px; background-color: #F0F0F0; border-radius: 100px; width: 40px; height: 40px; line-height: 40px; text-align: center; }
+	.w-statisticcards .card .name { text-transform: uppercase; color: #8898AA; }
+	.w-statisticcards .card .value > i { margin-right: 5px; }
+	.w-statisticcards .card .number{ margin-bottom:10px; font-weight: 800; font-size: large; color: #000; }
+
+	.w-statisticcards .ui-dark .card { background-color: #303030; border-color: #808080; }
+	.w-statisticcards .ui-dark .card .icon { background-color: #404040; }
+	.w-statisticcards .ui-dark .card .name { color: #8898AA; }
+	.w-statisticcards .ui-dark .card .number { color: #E9E9E9; }
+
+	.w-statisticcards-gray .card .icon { background-color: #F0F0F0; color: #000; }
+	.w-statisticcards-red .card .icon { background-color: #CA0000; color: #FFF; }
+	.w-statisticcards-blue .card .icon { background-color: #4285F4; color: #FFF; }
+	.w-statisticcards-purple .card .icon { background-color: #73197B; color: #FFF; }
+	.w-statisticcards-green .card .icon { background-color: #68B25B; color: #FFF; }
+	.w-statisticcards-orange .card .icon { background-color: #ffac37; color: #FFF; }
+	.w-statisticcards-black .card .icon { background-color: #333333; color: #FFF; }
+	.w-statisticcards-pink .card .icon { background-color: #E7357F; color: #FFF; }
+</style>
+
+<settings>
+	<div class="padding">
+		<ui-component name="choose" path="?.color" config="selector:div;limit:1" class="iconmenu">
+			<div data-id="blue">
+				<i class="ti ti-paint-brush-alt" style="color:#4285F4"></i>
+				<span>Blue</span>
+			</div>
+			<div data-id="red">
+				<i class="ti ti-paint-brush-alt" style="color:#CA0000"></i>
+				<span>Red</span>
+			</div>
+			<div data-id="purple">
+				<i class="ti ti-paint-brush-alt" style="color:#73197B"></i>
+				<span>Purple</span>
+			</div>
+			<div data-id="green">
+				<i class="ti ti-paint-brush-alt" style="color:#68B25B;"></i>
+				<span>Green</span>
+			</div>
+			<div data-id="orange">
+				<i class="ti ti-paint-brush-alt" style="color:#ffac37"></i>
+				<span>Orange</span>
+			</div>
+			<div data-id="black">
+				<i class="ti ti-paint-brush-alt" style="color:#333333"></i>
+				<span>Black</span>
+			</div>
+			<div data-id="pink">
+				<i class="ti ti-paint-brush-alt" style="color:#E7357F"></i>
+				<span>Pink</span>
+			</div>
+			<div data-id="gray">
+				<i class="ti ti-paint-brush-alt" style="color:#D0D0D0"></i>
+				<span>Gray</span>
+			</div>
+		</ui-component>
+	</div>
+
+	<script>
+		exports.save = function(config, el) {
+			el.rclass2('w-statisticcards-');
+			el.aclass('w-statisticcards-' + config.color);
+		};
+	</script>
+</settings>
+
+<body>
+	<div class="CMS_widgets">
+		<div class="row">
+			<div class="cards padding CMS_repeat col-4 col-xs-12 col-sm-6 col-lg-3">
+				<div class="card">
+					<div class="icon"><i class="ti ti-home CMS_edit"></i></div>
+					<div class="meta">
+						<div class="name hellip CMS_edit">Statistics</div>
+						<div class="number CMS_edit">3434</div>
+						<div class="value"><i class="ti ti-arrow-up CMS_edit"></i><span class="CMS_edit">3.48% Since last month</span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

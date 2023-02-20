@@ -1,0 +1,96 @@
+<script total>
+
+	// Meta
+	exports.id = 'ofbarwidget';
+	exports.name = 'Ofbar widget';
+	exports.author = 'Terezka';
+	exports.version = '1';
+	exports.group = 'Content';
+	exports.preview = 'https://cdn.totaljs.com/pages/ofbarwidget/ofbar.png';
+	exports.config = { url: '', count: 9 };
+
+</script>
+
+<style>
+	.w-ofbarwidget .ofbar { position: fixed; top: 50px; left: 0; right: 0; z-index: 100; width: 60%; margin: auto; border-radius: var(--radius); padding: var(--gap); background-color: #FFF; color: #333; border: 1px solid #F0F0F0; box-shadow: rgba(0,0,0,0.12) 0 5px 25px; }
+	.w-ofbarwidget .ofbar > span { float: right; margin: 0 0 10px 15px; cursor: pointer; color: #999; font-size: 16px; }
+	.w-ofbarwidget .ofbar > span:hover { color: #E73323; }
+	.w-ofbarwidget .ofbar > div { margin: 0 30px 15px 0; font-size: 15px; }
+	.w-ofbarwidget .ofbar > button {  background-color: var(--color); color: #FFF; border-radius: var(--radius); min-width: 80px; cursor: pointer; border: 0; padding: 8px 20px; text-transform: uppercase; font-size: 12px; }
+	.w-ofbarwidget .ofbar > button:hover { opacity: 0.8; }
+	.w-ofbarwidget .ofbar > button i { margin-right: 5px; }
+
+
+	.w-ofbarwidget-gray .ofbar button { background-color: #F0F0F0; }
+	.w-ofbarwidget-black .ofbar button { background-color: #333; }
+	.w-ofbarwidget-red .ofbar button { background-color: #CA0000; }
+	.w-ofbarwidget-blue .ofbar button { background-color: #4285F4; }
+	.w-ofbarwidget-purple .ofbar button { background-color: #73197B; }
+	.w-ofbarwidget-green .ofbar button { background-color: #68B25B; }
+	.w-ofbarwidget-orange .ofbar button { background-color: #FFAC37; }
+	.w-ofbarwidget-pink .ofbar button { background-color: #E7357F; }
+
+
+	.w-ofbarwidget .ui-dark .ofbar { background-color: #282828; color: #FFF; border-color: #303030; box-shadow: rgba(255,255,255,0.12) 0 5px 25px;}
+	@media (max-width: 768px) {
+		.w-ofbarwidget .ofbar { width: 75%; }
+		.w-ofbarwidget .ofbar .content { font-size: 12px; }
+	}
+</style>
+
+<settings>
+
+	<div class="padding">
+		<ui-component name="choose" path="?.color" config="selector:div;limit:1" class="iconmenu">
+			<div data-id="blue">
+				<i class="ti ti-paint-brush-alt" style="color:#4285F4"></i>
+				<span>Blue</span>
+			</div>
+			<div data-id="red">
+				<i class="ti ti-paint-brush-alt" style="color:#CA0000"></i>
+				<span>Red</span>
+			</div>
+			<div data-id="purple">
+				<i class="ti ti-paint-brush-alt" style="color:#73197B"></i>
+				<span>Purple</span>
+			</div>
+			<div data-id="green">
+				<i class="ti ti-paint-brush-alt" style="color:#68B25B;"></i>
+				<span>Green</span>
+			</div>
+			<div data-id="orange">
+				<i class="ti ti-paint-brush-alt" style="color:#ffac37"></i>
+				<span>Orange</span>
+			</div>
+			<div data-id="black">
+				<i class="ti ti-paint-brush-alt" style="color:#333333"></i>
+				<span>Black</span>
+			</div>
+			<div data-id="pink">
+				<i class="ti ti-paint-brush-alt" style="color:#E7357F"></i>
+				<span>Pink</span>
+			</div>
+			<div data-id="grey">
+				<i class="ti ti-paint-brush-alt" style="color:#F0F0F0"></i>
+				<span>Grey</span>
+			</div>
+		</ui-component>
+	</div>
+
+	<script>
+		exports.save = function(config, el) {
+			el.rclass2('w-ofbarwidget-');
+			el.aclass('w-ofbarwidget-' + config.color);
+		};
+	</script>
+
+</settings>
+<body>
+	<div class="CMS_widgets CMS_repeat">
+		<div class="ofbar">
+			<span><i class="ti ti-times CMS_edit"></i></span>
+			<div class="CMS_edit">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</div>
+			<button class="CMS_edit">OK</button>
+		</div>
+	</div>
+</body>
